@@ -142,10 +142,6 @@ _pom.xml_
 </project>
 ```
 
-Cấu trúc thư mục:
-
-![spring-boot-rest-api](../../images/loda1558775921707/2.jpg)
-
 #### Tạo model
 
 Sử dụng [Lombok][] cho tiện nha các bạn.
