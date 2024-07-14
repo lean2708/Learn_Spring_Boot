@@ -111,7 +111,7 @@ Giá như lúc này có thằng làm hộ được chúng ta việc này thì t�
 
 Bây giờ giả sử, chúng ta định nghĩa trước toàn bộ các dependency có trong Project, mô tả nó và tống nó vào 1 cái kho và giao cho một thằng tên là framework quản lý. Bất kỳ các Class nào khi khởi tạo, nó cần dependency gì, thì cái framework này sẽ tự tìm trong kho rồi inject vào đối tượng thay chúng ta. sẽ tiện hơn phải không?
 
-![di](https://images.viblo.asia/affc9432-a35e-4360-ad9b-b5c09e2fdd29.jpg)
+![di](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/68747470733a2f2f696d616765732e7669626c6f2e617369612f61666663393433322d613335652d343336302d616439622d6235633039653266646432392e6a7067.webp)
 
 That it, chính nó, đó cũng chính là nguyên lý chính của Inversion of Control (IOC) - Đảo chiều sự điều khiển
 
