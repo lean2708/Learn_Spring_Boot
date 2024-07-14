@@ -1,9 +1,3 @@
-# Source
-Vào link để xem chi tiết có hình ảnh minh họa:
-
-[Loda.me - 「Spring Boot #11」Hướng dẫn Spring Boot JPA + MySQL](https://loda.me/spring-boot-11-huong-dan-spring-boot-jpa-my-sql-loda1558687596060)
-
-# Content without images
 
 ### Giới thiệu
 
@@ -13,9 +7,9 @@ Vào link để xem chi tiết có hình ảnh minh họa:
 
 Nếu bạn cần xem lại các bài trước, thì nó ở đây:
 
-1. [「Spring Boot #8」Tạo Web Helloworld với @Controller][link-spring-boot-8]
-2. [「Spring Boot #9」Giải thích cách Thymeleaf vận hành + Expression + Demo Full][link-spring-boot-9]
-3. [「Spring Boot #10」@RequestMapping + @PostMapping + @ModelAttribute + @RequestParam + Web To-Do với Thymeleaf][link-spring-boot-10]
+1. 「Spring Boot #8」Tạo Web Helloworld với @Controller
+2. 「Spring Boot #9」Giải thích cách Thymeleaf vận hành + Expression + Demo Full
+3. 「Spring Boot #10」@RequestMapping + @PostMapping + @ModelAttribute + @RequestParam + Web To-Do với Thymeleaf
 
 Vì thiếu phần kết nối với Database nên chúng ta chưa thể hoàn thiện được trang Web của mình, trong bài này chúng ta sẽ tìm hiểu **Spring Boot JPA**.
 
@@ -90,7 +84,7 @@ _pom.xml_
 
 Cấu trúc thư mục:
 
-![spring-jpa](../../images/loda1558687596060/2.jpg)
+![spring-jpa](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/jpa1.webp)
 
 ### Tạo Table và dữ liệu
 
@@ -131,7 +125,7 @@ CALL generate_data();
 
 Sau khi chạy xong script trên, chúng ta kiểm tra database đã có dữ liệu chưa.
 
-![spring-jpa](../../images/loda1558687596060/3.jpg)
+![spring-jpa](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/jpa2.webp)
 
 
 ### Tạo Model User
@@ -252,7 +246,7 @@ userRepository.findAll()
 
 Nếu bạn tìm kiếm thì sẽ thấy `UserRepository` có hàng chục method mà chúng ta không cần viết lại nữa. Vì nó kế thừa `JpaRepository` rồi.
 
-![spring-jpa](../../images/loda1558687596060/4.jpg)
+![spring-jpa](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/jpa3.webp)
 
 
 ### Demo
@@ -370,15 +364,3 @@ User3: null
 ```
 
 ### Kết 
-
-Như mọi khi, [toàn bộ code tham khảo tại Github][link-github]
-<a class="btn btn-icon btn-github mr-1" target="_blank" href="https://github.com/loda-kun/spring-boot-learning">
-<i class="fab fa-github"></i>
-</a>
-
-
-[link-spring-boot-8]: https://loda.me/spring-boot-8-tao-web-helloworld-voi-controller-loda1558189401113
-[link-spring-boot-9]: https://loda.me/spring-boot-9-huong-dan-chi-tiet-lam-web-voi-thymeleaf-demo-full-loda1558661736676
-[link-spring-boot-10]: https://loda.me/spring-boot-10-request-mapping-post-mapping-model-attribute-request-param-web-to-do-voi-thymeleaf-loda1558661736676
-[link-hibernate]: https://loda.me/hibernate-la-gi-loda1554623701594
-[link-github]: https://github.com/loda-kun/spring-boot-learning
