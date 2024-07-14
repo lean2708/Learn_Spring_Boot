@@ -459,7 +459,7 @@ Các scope này đồng bộ hóa với các scope mà chúng ta đã xác đị
 
 Cuối cùng, ta cần định nghĩa SecurityContext cho API:
 
-``java
+```java
 private SecurityContext securityContext() {
     return SecurityContext.builder()
       .securityReferences(
@@ -472,7 +472,12 @@ private SecurityContext securityContext() {
 Lưu ý tên mà chúng ta sử dụng ở đây - spring_oauth - đồng bộ hóa với tên mà chúng ta đã sử dụng trước đây trong SecurityScheme.
 
 **10.4 Test**
-Bây giờ sau tất cả những gì đã setup, hãy xem qua thành quả của chúng ta. Tại Swagger UI hãy thử truy cập Foo API. Ta có thể truy cập Swagger UI local tại: http://localhost:8082/spring-security-oauth-resource/swagger-ui.html
+
+Bây giờ sau tất cả những gì đã setup, hãy xem qua thành quả của chúng ta. Tại Swagger UI hãy thử truy cập Foo API. Ta có thể truy cập Swagger UI local tại: 
+
+```java
+http://localhost:8082/spring-security-oauth-resource/swagger-ui.html
+```
 
 Như chúng ta có thể thấy, nút Authorize mới đã hiện ra:
 
