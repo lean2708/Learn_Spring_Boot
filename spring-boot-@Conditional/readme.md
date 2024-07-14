@@ -1,11 +1,4 @@
-# Source
-Vào link để xem chi tiết có hình ảnh minh họa:
 
-[Loda.me - [Spring Boot] Hướng dẫn tạo Bean có điều kiện với @Conditional][loda-link]
-
-[loda-link]: https://loda.me/spring-boot-huong-dan-tao-bean-co-dieu-kien-voi-conditional-loda1559137415075
-
-# Content without images
 ### Giới thiệu
 
 Khi xây dựng một chương trình với **Spring Boot** đôi lúc chúng ta một **Bean** chỉ được load lên hoặc khởi tạo theo một điều kiện nào đó. Ví dụ như tạo một **Bean** trong môi trường Test, còn môi trường thật sẽ không cần nữa.
@@ -14,12 +7,7 @@ Khi xây dựng một chương trình với **Spring Boot** đôi lúc chúng ta
 
 Bài này yêu cầu kiến thức cơ bản:
 
-1. [「Spring Boot #0」 Series làm chủ Spring Boot, từ zero to hero][link-spring-boot-0]
-
-Toàn bộ ví dụ trong bài viết này [đều có tại Github][link-github]
-<a class="btn btn-icon btn-github mr-1" target="_blank" href="https://github.com/loda-kun/spring-boot-learning">
-<i class="fab fa-github"></i>
-</a>
+1. 「Spring Boot #0」 Series làm chủ Spring Boot, từ zero to hero
 
 ### Cách tạo bean có điều kiện
 
@@ -233,11 +221,3 @@ Tất nhiên là bạn hoàn toàn có thể tự tạo ra cho mình một đi�
 
 ### Kết
 
-Và như mọi khi, [toàn bộ code đều được up lên Github][link-github].
-<a class="btn btn-icon btn-github mr-1" target="_blank" href="https://github.com/loda-kun/spring-boot-learning">
-<i class="fab fa-github"></i>
-</a>
-
-
-[link-github]: https://github.com/loda-kun/spring-boot-learning
-[link-spring-boot-0]: https://loda.me/spring-boot-0-series-lam-chu-spring-boot-tu-zero-to-hero-loda1558963914472
