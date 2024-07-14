@@ -1,26 +1,21 @@
-# Source
-Vào link để xem chi tiết có hình ảnh minh họa:
 
-[Loda.me - 「Spring Boot #13 Special」 Chi tiết Spring Boot + Thymeleaf + MySQL + i18n + Web Demo](https://loda.me/spring-boot-13-special-chi-tiet-spring-boot-thymeleaf-my-sql-i18n-web-demo-loda1558758475731)
-
-# Content without images
 
 ### Giới thiệu
 
 Trong loạt series về Spring Boot này, chúng ta đã đi qua hết tất cả các kiến thức căn bản và cần thiết.
 
-1. [「Spring Boot #1」Hướng dẫn @Component và @Autowired][link-spring-boot-1]
-2. [「Spring Boot #2」@Autowired - @Primary - @Qualifier][link-spring-boot-2]
-3. [「Spring Boot #3」Spring Bean Life Cycle + @PostConstruct và @PreDestroy][link-spring-boot-3]
-4. [「Spring Boot #4」@Component vs @Service vs @Repository][link-spring-boot-4]
-5. [「Spring Boot #5」Component Scan là gì?][link-spring-boot-5]
-6. [「Spring Boot #6」@Configuration và @Bean][link-spring-boot-6]
-7. [「Spring Boot #7」Spring Boot Application Config và @Value][link-spring-boot-7]
-8. [「Spring Boot #8」Tạo Web Helloworld với @Controller][link-spring-boot-8]
-9. [「Spring Boot #9」Giải thích cách Thymeleaf vận hành + Expression + Demo Full][link-spring-boot-9]
-10. [「Spring Boot #10」@RequestMapping + @PostMapping + @ModelAttribute + @RequestParam + Web To-Do với Thymeleaf][link-spring-boot-10]
-11. [「Spring Boot #11」Hướng dẫn Spring Boot JPA + MySQL][link-spring-boot-11]
-12. [「Spring Boot #12」Spring JPA Method + @Query][link-spring-boot-12]
+1. 「Spring Boot #1」Hướng dẫn @Component và @Autowired
+2. 「Spring Boot #2」@Autowired - @Primary - @Qualifier
+3. 「Spring Boot #3」Spring Bean Life Cycle + @PostConstruct và @PreDestroy
+4. 「Spring Boot #4」@Component vs @Service vs @Repository
+5. 「Spring Boot #5」Component Scan là gì?
+6. 「Spring Boot #6」@Configuration và @Bean
+7. 「Spring Boot #7」Spring Boot Application Config và @Value
+8. 「Spring Boot #8」Tạo Web Helloworld với @Controller
+9. 「Spring Boot #9」Giải thích cách Thymeleaf vận hành + Expression + Demo Full
+10. 「Spring Boot #10」@RequestMapping + @PostMapping + @ModelAttribute + @RequestParam + Web To-Do với Thymeleaf
+11. 「Spring Boot #11」Hướng dẫn Spring Boot JPA + MySQL
+12. 「Spring Boot #12」Spring JPA Method + @Query
 
 
 Hôm nay, chúng ta sẽ vận dụng toàn bộ kiến thức đã học để tạo ra website quản lý công việc bằng Spring Boot + Thymeleaf + MySQL.
@@ -102,10 +97,6 @@ _pom.xml_
 </project>
 ```
 
-Cấu trúc thư mục:
-
-![spring-thymleaf-mysql](../../images/loda1558758475731/2.jpg)
-![sspring-thymleaf-mysq](../../images/loda1558758475731/2_2.jpg)
 
 ### Tạo Database
 
@@ -129,9 +120,7 @@ Thêm 1 record vào DB
 INSERT INTO `todo_db`.`todo` (`title`, `detail`) VALUES ('Làm bài tập', 'Hoàn thiện bài viết Spring Boot #13');
 ```
 
-Xem thử kết quả:
-
-![sspring-thymleaf-mysq](../../images/loda1558758475731/3.jpg)
+Xem thử kết quả
 
 ### Cấu hình ứng dụng
 
@@ -357,7 +346,7 @@ public class TodoController {
 
 Tầng Controller đã trả về templates, nhiệm vụ tiếp theo là sử dụng Template Engine để xử lý các templates này và trả về webpage cho người dùng. 
 
-Template Engine chúng ta sử dụng sẽ là **Thymeleaf**, đã học tại các bài Spring Boot [#8][link-spring-boot-8], [#9][link-spring-boot-9], [#10][link-spring-boot-10].
+Template Engine chúng ta sử dụng sẽ là **Thymeleaf**, đã học tại các bài Spring Boot #8 link-spring-boot, #9 link-spring-boot-, #10 link-spring-boot.
 
 _index.html_
 
@@ -552,45 +541,35 @@ public class App {
 
 Truy cập địa chỉ: `http://localhost:8085/`
 
-![sspring-thymleaf-mysq](../../images/loda1558758475731/4.jpg)
+
 
 Vì chúng ta cấu hình `Locale` là `vi`, nên ngôn ngữ đều hiện Tiếng Việt, rất tuyệt :3 
 
 Bấm vào **Xem danh sách công việc** để tới `/listTodo`
 
-![sspring-thymleaf-mysq](../../images/loda1558758475731/5.jpg)
+
 
 Vì chúng ta đã insert 1 bản ghi vào Database từ trước, nên ở đây nó hiện ra 1 việc cần làm.
 
 Bấm vào **Thêm công việc** để tới `/addTodo`
 
-![sspring-thymleaf-mysq](../../images/loda1558758475731/7.jpg)
+
 
 Bấm **Add** để lưu thông tin vào Database.
 
-![sspring-thymleaf-mysq](../../images/loda1558758475731/8.jpg)
+
 
 Vậy là giờ chúng ta có 2 công việc :3
 
-![sspring-thymleaf-mysq](../../images/loda1558758475731/9.jpg)
 
 Bây giờ giả sử dụng ta gửi lên request tạo ra một Todo không hợp lệ.
 
 `TodoValidator` sẽ trả về null -> thêm thất bại
 
-![sspring-thymleaf-mysq](../../images/loda1558758475731/10.jpg)
+
 
 ### Kết
 
-Vậy là chúng ta đã đi được nửa Series **Spring Boot**. 
-
-Trong các phần tới, chúng ta sẽ tìm hiểu về cách làm RestAPI với **Spring Boot**, đây mới là phần mạnh mẽ của nhất.
-
-
-Như mọi khi, [toàn bộ code tham khảo tại Github][link-github]
-<a class="btn btn-icon btn-github mr-1" target="_blank" href="https://github.com/loda-kun/spring-boot-learning">
-<i class="fab fa-github"></i>
-</a>
 
 
 
@@ -600,18 +579,5 @@ Như mọi khi, [toàn bộ code tham khảo tại Github][link-github]
 
 
 [link-lombok]: https://loda.me/general-huong-dan-su-dung-lombok-giup-code-java-nhanh-hon-69-loda1552789752787/
-[link-hibernate]: https://loda.me/hibernate-la-gi-loda1554623701594
 
-[link-spring-boot-1]: https://loda.me/spring-boot-1-huong-dan-component-va-autowired-loda1557412317602
-[link-spring-boot-2]: https://loda.me/spring-boot-2-autowired-primary-qualifier-loda1557561089057
-[link-spring-boot-3]: https://loda.me/spring-boot-3-spring-bean-life-cycle-post-construct-va-pre-destroy-loda1557583753982
-[link-spring-boot-4]: https://loda.me/spring-boot-4-component-vs-service-vs-repository-loda1557627097246
-[link-spring-boot-5]: https://loda.me/spring-boot-5-component-scan-la-gi-loda1557673850320
-[link-spring-boot-6]: https://loda.me/spring-boot-6-configuration-va-bean-loda1557885506910
-[link-spring-boot-7]: https://loda.me/spring-boot-7-spring-boot-application-config-va-value-loda1558171356103
-[link-spring-boot-8]: https://loda.me/spring-boot-8-tao-web-helloworld-voi-controller-loda1558189401113
-[link-spring-boot-9]: https://loda.me/spring-boot-9-huong-dan-chi-tiet-lam-web-voi-thymeleaf-demo-full-loda1558661736676
-[link-spring-boot-10]: https://loda.me/spring-boot-10-request-mapping-post-mapping-model-attribute-request-param-web-to-do-voi-thymeleaf-loda1558661736676
-[link-spring-boot-11]: https://loda.me/spring-boot-11-huong-dan-spring-boot-jpa-my-sql-loda1558687596060
-[link-spring-boot-12]: https://loda.me/spring-boot-12-spring-jpa-method-query-loda1558746200832
-[link-github]: https://github.com/loda-kun/spring-boot-learning
+
