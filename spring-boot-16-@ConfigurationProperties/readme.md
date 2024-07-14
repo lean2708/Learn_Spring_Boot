@@ -1,16 +1,9 @@
-# Source
-Vào link để xem chi tiết có hình ảnh minh họa:
 
-[Loda.me - 「Spring Boot #16」 Hướng dẫn sử dụng @ConfigurationProperties][loda-link]
-
-[loda-link]: https://loda.me/spring-boot-16-huong-dan-su-dung-configuration-properties-loda1558847989506
-
-# Content without images
 ### Giới thiệu
 
 Tiếp nối Series, [bắt đầu từ bài viết trước][link-spring-boot-15], bạn hoàn toàn đã có thể làm chủ Spring Boot cho nghiệp vụ của mình rồi. Trong các phần sắp tới sẽ là các kiến thức nâng cao hơn để giúp bạn tăng hiệu quả trong code.
 
-1. [「Spring Boot #15」 Exception Handling @ExceptionHandler + @RestControllerAdvice / @ControllerAdvice + @ResponseStatus][link-spring-boot-15]
+1.「Spring Boot #15 Exception Handling @ExceptionHandler + @RestControllerAdvice / @ControllerAdvice + @ResponseStatus
 
 Một trong những điểm tiện dụng của **Spring Boot** là nó cho phép chúng ta cấu hình ứng dụng từ bên ngoài và lấy các thông tin đó ra một cách dễ dàng.
 
@@ -71,7 +64,7 @@ Trong bài hôm nay chúng ta sẽ tìm hiểu annotation `@ConfigurationPropert
 
 Cấu trúc thư mục:
 
-![spring-boot-rest-api](../../images/loda1558847989506/2.jpg)
+![spring-boot-rest-api](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/pro2.webp)
 
 
 ### Cấu hình đơn giản
@@ -119,7 +112,7 @@ Vậy là xong, đơn giản phải không. Bây giờ, **Spring sẽ tự độ
 
 Tạo ra file _application.yml_ tại thư mục resources:
 
-![spring-properties](../../images/loda1556418741178/2.jpg)
+![spring-properties](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/pro.webp)
 
 Thêm các thông tin chúng ta cần:
 
@@ -234,12 +227,3 @@ Global variable:
 ### Link Github
 
 Chúng ta đã tìm hiểu cách sử dụng annotation `@ConfigurationProperties` và các ứng dụng của nó. Áp dụng cách config này sẽ giúp bạn kiểm soát tốt hơn và sử dụng dễ hơn.
-
-Và như mọi khi, [toàn bộ code đều được up lên Github][link-github].
-<a class="btn btn-icon btn-github mr-1" target="_blank" href="https://github.com/loda-kun/spring-boot-learning">
-<i class="fab fa-github"></i>
-</a>
-
-[link-lombok]: https://loda.me/general-huong-dan-su-dung-lombok-giup-code-java-nhanh-hon-69-loda1552789752787/
-[link-spring-boot-15]: http://localhost:8081/spring-boot-15-exception-handling-exception-handler-rest-controller-advice-controller-advice-response-status-loda1558838525127
-[link-github]: https://github.com/loda-kun/spring-boot-learning
