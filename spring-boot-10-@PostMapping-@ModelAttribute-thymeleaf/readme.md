@@ -1,9 +1,3 @@
-# Source
-Vào link để xem chi tiết có hình ảnh minh họa:
-
-[Loda.me - 「Spring Boot #10」@RequestMapping + @PostMapping + @ModelAttribute + @RequestParam + Web To-Do với Thymeleaf](https://loda.me/spring-boot-10-request-mapping-post-mapping-model-attribute-request-param-web-to-do-voi-thymeleaf-loda1558661736676)
-
-# Content without images
 
 ### Giới thiệu
 
@@ -11,8 +5,8 @@ Trong bài hôm nay chúng ta sẽ tìm hiểu cách handle request POST của *
 
 Trước đó, bạn nên biết
 
-1. [「Spring Boot #8」Tạo Web Helloworld với @Controller][link-spring-boot-8]
-2. [「Spring Boot #9」Giải thích cách Thymeleaf vận hành + Expression + Demo Full][link-spring-boot-9]
+1. 「Spring Boot #8」Tạo Web Helloworld với @Controller
+2. 「Spring Boot #9」Giải thích cách Thymeleaf vận hành + Expression + Demo Full
 
 ### @PostMapping
 
@@ -378,43 +372,33 @@ _index.html_
 
 Khởi động ứng dụng vào truy cập vào địa chỉ: `http://localhost:8080/`
 
-![spring-thymeleaf](../../images/loda1558661736676/3.png)
+![spring-thymeleaf](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/webtodo1.webp)
 
 Nhấn vào nút **Xem Danh Sách** để đi tới `GET /listTodo`
 
-![spring-thymeleaf](../../images/loda1558661736676/4.png)
+![spring-thymeleaf](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/webtodo2.webp)
 
 Bấm **Thêm Công Việc** để đi tới trang `GET /addTodo`
 
-![spring-thymeleaf](../../images/loda1558661736676/5.png)
+![spring-thymeleaf](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/webtodo3.webp)
 
 Nhập thông tin và bấm **Add** để gửi thông tin tới server `POST /addTodo`. 
 
 Nếu thành công, server sẽ trả về thành công.
 
-![spring-thymeleaf](../../images/loda1558661736676/6.png)
+![spring-thymeleaf](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/webtodo4.webp)
 
 Xem lại danh sách công việc bằng cách bấm vào **Xem danh sách công việc**.
 
-![spring-thymeleaf](../../images/loda1558661736676/7.png)
+![spring-thymeleaf](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/webtodo5.webp)
 
 Nếu danh sách quá nhiều, chúng ta có giới hạn bằng cách truyền lên param `limit`. 
 
 Ví dụ tôi truyền vào là `http://localhost:8080/listTodo?limit=2`
 
-![spring-thymeleaf](../../images/loda1558661736676/8.png)
+![spring-thymeleaf](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/webtodo6.webp)
 
 Kết quả chỉ còn 2 việc phải làm =)))
 
 ### Kết
 
-Như mọi khi, [toàn bộ code tham khảo tại Github][link-github]
-<a class="btn btn-icon btn-github mr-1" target="_blank" href="https://github.com/loda-kun/spring-boot-learning">
-<i class="fab fa-github"></i>
-</a>
-
-
-[link-spring-boot-8]: https://loda.me/spring-boot-8-tao-web-helloworld-voi-controller-loda1558189401113
-[link-spring-boot-9]: https://loda.me/spring-boot-9-huong-dan-chi-tiet-lam-web-voi-thymeleaf-demo-full-loda1558661736676
-[link-lombok]: https://loda.me/general-huong-dan-su-dung-lombok-giup-code-java-nhanh-hon-69-loda1552789752787/
-[link-github]: https://github.com/loda-kun/spring-boot-learning
