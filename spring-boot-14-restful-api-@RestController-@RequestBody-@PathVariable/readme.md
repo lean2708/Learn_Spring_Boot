@@ -1,12 +1,7 @@
-# Source
-Vào link để xem chi tiết có hình ảnh minh họa:
 
-[Loda.me - 「Spring Boot #14」 Restful API + @RestController + @PathVariable + @RequestBody](https://loda.me/spring-boot-14-restful-api-rest-controller-path-variable-request-body-loda1558775921707)
-
-# Content without images
 ### Giới thiệu
 
-[Trong bài trước][link-spring-boot-13], chúng ta đã tìm hiểu cách làm Web với **Spring boot** và **Thymeleaf**. Mặc dù rất tốt rồi, nhưng đó chưa hẳn là điểm mạnh của **Spring Boot**. 
+Trong bài trước, chúng ta đã tìm hiểu cách làm Web với **Spring boot** và **Thymeleaf**. Mặc dù rất tốt rồi, nhưng đó chưa hẳn là điểm mạnh của **Spring Boot**. 
 
 Hiện tại xu hướng hiện nay là sẽ để các frontend framework take care nhiều việc hơn, còn phía server chỉ nên cung cấp API cho frontend framework là đủ.
 
@@ -68,10 +63,10 @@ Và với cách thống nhất này, thì sẽ có một phần thông tin quan 
 
 Ví dụ:
 
-1. URL tạo To-do: [https://loda.me/todo](https://loda.me). Tương ứng với HTTP method là POST
-2. URL lấy thông tin To-do số 12: [https://loda.me/todo/12](https://loda.me). Tương ứng với HTTP method là GET
-3. URL sửa thông tin To-do số 12: [https://loda.me/todo/12](https://loda.me). Tương ứng với HTTP method là PUT
-4. URL xoá To-do số 12: [https://loda.me/todo/12](https://loda.me). Tương ứng với HTTP method là DELETE
+1. URL tạo To-do: . Tương ứng với HTTP method là POST
+2. URL lấy thông tin To-do : . Tương ứng với HTTP method là GET
+3. URL sửa thông tin To-do : . Tương ứng với HTTP method là PUT
+4. URL xoá To-do: Tương ứng với HTTP method là DELETE
 
 Ngoài thông tin trong `Body` của request, thì cái chúng ta cần chính là cái con số 12 nằm trong URL. Phải lấy được con số đó thì mới biết được đối tượng To-do cần thao tác là gì.
 
@@ -276,8 +271,6 @@ Bây giờ chỉ cần Test thôi!
 POST http://localhost:8080/api/v1/todo
 ```
 
-![spring-boot-rest-api](../../images/loda1558775921707/3.jpg)
-
 
 #### Xem danh sách To-do
 
@@ -285,15 +278,11 @@ POST http://localhost:8080/api/v1/todo
 GET http://localhost:8080/api/v1/todo
 ```
 
-![spring-boot-rest-api](../../images/loda1558775921707/4.jpg)
-
-
 #### Sửa To-do
 
 ```
 PUT http://localhost:8080/api/v1/todo/1
 ```
-![spring-boot-rest-api](../../images/loda1558775921707/5.jpg)
 
 #### Lấy thông tin To-do
 
@@ -301,7 +290,6 @@ PUT http://localhost:8080/api/v1/todo/1
 GET http://localhost:8080/api/v1/todo/1
 ```
 
-![spring-boot-rest-api](../../images/loda1558775921707/6.jpg)
 
 #### Xóa To-do
 
@@ -309,16 +297,6 @@ GET http://localhost:8080/api/v1/todo/1
 DELETE http://localhost:8080/api/v1/todo/1
 ```
 
-![spring-boot-rest-api](../../images/loda1558775921707/7.jpg)
-
 
 ### Kết
 
-Như mọi khi, [toàn bộ code tham khảo tại Github][link-github]
-<a class="btn btn-icon btn-github mr-1" target="_blank" href="https://github.com/loda-kun/spring-boot-learning">
-<i class="fab fa-github"></i>
-</a>
-
-[link-lombok]: https://loda.me/general-huong-dan-su-dung-lombok-giup-code-java-nhanh-hon-69-loda1552789752787/
-[link-spring-boot-13]: https://loda.me/spring-boot-13-special-chi-tiet-spring-boot-thymeleaf-my-sql-i18n-web-demo-loda1558758475731
-[link-github]: https://github.com/loda-kun/spring-boot-learning
