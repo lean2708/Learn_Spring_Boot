@@ -1,8 +1,3 @@
-# Source
-Vào link để xem chi tiết có hình ảnh minh họa: 
-
-[Loda.me - 「Spring Boot #7」Spring Boot Application Config và @Value](https://loda.me/spring-boot-7-spring-boot-application-config-va-value-loda1558171356103)
-# Content without images
 
 ### Giới thiệu 
 
@@ -12,8 +7,8 @@ Trong thực tế không phải lúc nào chúng ta cũng nên để mọi thứ
 
 Sau bài này bạn có thể xem thêm nội dung sau:
 
-1. [Hướng dẫn sử dụng Spring Properties với @ConfigurationProperties][link-spring-properties]
-2. [「Spring-boot」Hướng dẫn sử dụng Spring Profiles][link-spring-profile]
+1. [Hướng dẫn sử dụng Spring Properties với @ConfigurationProperties]
+2. [「Spring-boot」Hướng dẫn sử dụng Spring Profiles]
 
 ### Cài đặt
 
@@ -62,11 +57,6 @@ _pom.xml_
 
 </project>
 ```
-
-
-Cấu trúc thư mục:
-
-![spring-configuration](../../images/loda1558171356103/2.jpg)
 
 
 ### application.properties
@@ -230,10 +220,6 @@ Bạn sẽ thấy là chương trình đã chạy trên port 8081. Và cấu hì
 
 ### Kết
 
-Như mọi khi, [code được up tại Github][link-github]
-<a class="btn btn-icon btn-github mr-1" target="_blank" href="https://github.com/loda-kun/spring-boot-learning">
-<i class="fab fa-github"></i>
-</a>
 
 
 
@@ -241,4 +227,3 @@ Như mọi khi, [code được up tại Github][link-github]
 
 [link-spring-properties]: https://loda.me/huong-dan-su-dung-spring-properties-voi-configuration-properties-loda1556418741178
 [link-spring-profile]: https://loda.me/spring-boot-huong-dan-su-dung-spring-profiles-loda1552901817707
-[link-github]: https://github.com/loda-kun/spring-boot-learning
