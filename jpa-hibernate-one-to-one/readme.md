@@ -14,7 +14,6 @@ Trong bài sử dụng các kiến thức:
 
 ### Tạo project
 
-Toàn bộ bài viết được up tại `Github`: [github.com/loda-kun/java-all](github.com/loda-kun/java-all)
 
 Chúng ta sẽ sử dụng `Gradle` để tạo một project có khai báo `Spring Boot` và `Jpa` để hỗ trợ cho việc demo `@OneToOne`.
 
@@ -57,9 +56,6 @@ Trong ứng dụng trên bạn sẽ thấy có `com.h2database:h2`. Đây là m�
 
 Chúng ta sẽ sử dụng `H2` thay cho `MySql` để cho.. tiện!
 
-Khi tạo xong project, sẽ có thư mục như sau:
-
-![one-to-one](../../images/loda1554476367261/3.jpg){:class="center-image"}
 
 
 ### Tạo Table
@@ -202,9 +198,7 @@ public class OneToOneExampleApplication implements CommandLineRunner {
 
 ```
 
-Kết quả trong database lúc này:
-
-![one-to-one](../../images/loda1554476367261/5.jpg){:class="center-image"}
+Kết quả trong database lúc này
 
 Vậy là thằng `Address` đã liên kết tới `Person` có `id=1`. Đúng như ta mong đợi. 
 
