@@ -1,17 +1,9 @@
-# Source
-Vào link để xem chi tiết có hình ảnh minh họa:
-
-[Loda.me - [Spring Boot] Hướng dẫn tự tạo custom @Conditional][loda-link]
-
-[loda-link]: https://loda.me/spring-boot-huong-dan-tu-tao-custom-conditional-loda1559618430360
-
-# Content without images
 
 ### Giới thiệu
 
 Yêu cầu bạn phải đọc bài viết về `@Conditional` trước:
 
-1. [[Spring Boot] Hướng dẫn tạo Bean có điều kiện với @Conditional][link-conditional-1]
+1. [Spring Boot] Hướng dẫn tạo Bean có điều kiện với @Conditional
 
 Tôi đã giới thiệu với các bạn các sử dụng các loại `@Conditional` có sẵn trong Spring Boot. Tuy nhiên, trên thực tế, sẽ có những lúc yêu cầu các loại điều kiện nằm ngoài phạm vi của Spring Boot cung cấp.
 
@@ -199,10 +191,3 @@ SomeBean someBean() {
 
 Tới đây, bạn có thể nắm vững được cách tạo điều kiện cho cấu hình ứng dụng của mình, nó sẽ rất có ích khi bạn làm việc và tách biệt được hai môi trường dev và production.
 
-Và như mọi khi, [toàn bộ code đều được up lên Github][link-github].
-<a class="btn btn-icon btn-github mr-1" target="_blank" href="https://github.com/loda-kun/spring-boot-learning">
-<i class="fab fa-github"></i>
-</a>
-
-[link-conditional-1]: https://loda.me/spring-boot-huong-dan-tao-bean-co-dieu-kien-voi-conditional-loda1559137415075
-[link-github]: https://github.com/loda-kun/spring-boot-learning
