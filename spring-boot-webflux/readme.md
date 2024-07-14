@@ -1,10 +1,4 @@
-# Source
-Vào link để xem chi tiết có hình ảnh minh họa:
 
-[Loda.me - Spring Boot - Xây dựng ứng dụng Reactive với Spring 5 Webflux
-](https://loda.me/spring-boot-xay-dung-ung-dung-reactive-voi-spring-5-webflux-loda1557549671284)
-
-# Content without images
 
 ### Tổng quan
 Spring Webflux Framework là một phần của Spring 5 và cung cấp [**Reactive Programming**][reactive-programming] nhằm hỗ trợ cho việc xây dựng ứng dụng web.
@@ -215,9 +209,3 @@ Trong Spring MVC, nó mặc định rằng ứng dụng có thể bị block t�
 
 Reactive và non-blocking nhìn chung thì không làm cho ứng dụng chạy nhanh hơn. Lợi ích mà nó được kỳ vọng là mở rộng ứng dụng với số luồng nhỏ và yêu cầu ít bộ nhớ hơn. Nó làm cho các ứng dụng trở nên linh hoạt hơn khi tải.
 
-Cuối cùng, source code hoàn chỉnh được sử dụng trong hướng dẫn này có sẵn [trên Github][link-github]
-<a class="btn btn-icon btn-github mr-1" target="_blank" href="https://github.com/loda-kun/spring-boot-learning">
-<i class="fab fa-github"></i>
-</a>
-[reactive-programming]: https://loda.me/gioi-thieu-reactive-programming-voi-reactor-loda1556032486705
-[link-github]: https://github.com/loda-kun/spring-boot-learning
