@@ -1,11 +1,3 @@
-# Source
-Vào link để xem chi tiết có hình ảnh minh họa:
-
-[Loda.me - 「Spring Boot #18」 Hướng dẫn chi tiết Test Spring Boot][loda-link]
-
-[loda-link]: https://loda.me/spring-boot-18-huong-dan-chi-tiet-test-spring-boot-loda1558861382229
-
-# Content without images
 
 ### Giới thiệu
 
@@ -181,7 +173,7 @@ _pom.xml_
 Cấu trúc thư mục:
 
 
-![spring-profiles](../../images/loda1558861382229/2.jpg)
+![spring-profiles](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/test.webp)
 
 #### Tạo Model, Service, Repository
 
@@ -485,12 +477,3 @@ Chạy thử và trải nghiệm bạn nhé :3
 ### Kết
 
 Test là một phần quan trọng trong hệ thống, hi vọng các đọc kĩ và thực hành để nắm chắc.
-
-Và như mọi khi, [toàn bộ code đều được up lên Github][link-github].
-<a class="btn btn-icon btn-github mr-1" target="_blank" href="https://github.com/loda-kun/spring-boot-learning">
-<i class="fab fa-github"></i>
-</a>
-
-[link-lombok]: https://loda.me/general-huong-dan-su-dung-lombok-giup-code-java-nhanh-hon-69-loda1552789752787/
-[link-github]: https://github.com/loda-kun/spring-boot-learning
-[link-mockito]: https://loda.me/
