@@ -1,21 +1,14 @@
-# Source
-Vào link để xem chi tiết có hình ảnh minh họa:
 
-[Loda.me - 「Spring Boot #15」 Exception Handling @ExceptionHandler + @RestControllerAdvice / @ControllerAdvice + @ResponseStatus][loda-link]
-
-[loda-link]: https://loda.me/spring-boot-15-exception-handling-exception-handler-rest-controller-advice-controller-advice-response-status-loda1558838525127
-
-# Content without images
 
 ### Giới thiệu
 
-[Trong bài trước][link-spring-boot-14] chúng ta đã biết cách làm một Rest Api Server với **Spring Boot**.
+Trong bài trước chúng ta đã biết cách làm một Rest Api Server với **Spring Boot**.
 
-1. [「Spring Boot #14」 Restful API + @RestController + @PathVariable + @RequestBody][link-spring-boot-14]
+1. 「Spring Boot #14」 Restful API + @RestController + @PathVariable + @RequestBody
 
 Tuy nhiên có một số vấn đề mà chúng ta kiểm soát. Ví dụ như nếu người dùng request lên một `id` không hề tồn tại thì sao?
 
-![spring-boot-rest-api](../../images/loda1558838525127/3.jpg)
+![spring-boot-rest-api](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/ex1.webp)
 
 Trong bài viết này, chúng ta sẽ tìm hiểu cách xử lý Exception trong **Spring Boot**
 
@@ -95,7 +88,7 @@ _pom.xml_
 
 Cấu trúc thư mục:
 
-![spring-boot-rest-api](../../images/loda1558838525127/2.jpg)
+![spring-boot-rest-api](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/ex2.webp)
 
 #### Tạo model
 
@@ -214,16 +207,8 @@ GET http://localhost:8080/api/v1/todo/11
 
 Ở đây, đối tượng 11 không tồn tại trong danh sách, chúng ta sẽ trả về lỗi cho phía Client.
 
-![spring-boot-rest-api](../../images/loda1558838525127/4.jpg)
+![spring-boot-rest-api](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/ex3.webp****)
 
 
 ### Kết
 
-Như mọi khi, [toàn bộ code tham khảo tại Github][link-github]
-<a class="btn btn-icon btn-github mr-1" target="_blank" href="https://github.com/loda-kun/spring-boot-learning">
-<i class="fab fa-github"></i>
-</a>
-
-[link-lombok]: https://loda.me/general-huong-dan-su-dung-lombok-giup-code-java-nhanh-hon-69-loda1552789752787/
-[link-github]: https://github.com/loda-kun/spring-boot-learning
-[link-spring-boot-14]: https://loda.me/spring-boot-14-restful-api-rest-controller-path-variable-request-body-loda1558775921707
