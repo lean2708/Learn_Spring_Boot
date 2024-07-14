@@ -305,7 +305,5 @@ public class Girl {
 
 `@Primary` và `@Qualifier` là một trong những tính năng bạn nên biết trong Spring để có thể xử lý vấn đề nhiều Bean cùng loại trong một Project.
 
-Như mọi khi, [code được up tại Github][link-github].
 
 [link-spring-boot1]: https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-1-helloworld-%40Component-%40Autowired
-[link-github]: https://github.com/lean2708/Learn_Spring_Boot/tree/master
