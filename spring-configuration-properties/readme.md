@@ -1,9 +1,4 @@
-# Source
-Vào link để xem chi tiết có hình ảnh minh họa: 
 
-[Loda.me - Hướng dẫn sử dụng Spring Properties với @ConfigurationProperties](https://loda.me/huong-dan-su-dung-spring-properties-voi-configuration-properties-loda1556418741178)
-
-# Content without images
 ### Giới thiệu
 
 Một trong những điểm tiện dụng của Spring Boot là nó cho phép chúng ta cấu hình ứng dụng từ bên ngoài và lấy các thông tin đó ra một cách dễ dàng.
@@ -224,6 +219,3 @@ Global variable:
 
 Chúng ta đã tìm hiểu cách sử dụng annotation `@ConfigurationProperties` và các ứng dụng của nó. Áp dụng cách config này sẽ giúp bạn kiểm soát tốt hơn và sử dụng dễ hơn.
 
-Và như mọi khi, [toàn bộ code đều được up lên Github][link-github].
-
-[link-github]: https://github.com/loda-kun/spring-boot-learning
