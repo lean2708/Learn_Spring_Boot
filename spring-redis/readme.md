@@ -1,9 +1,4 @@
-# Source
-Vào link để xem chi tiết có hình ảnh minh họa: 
 
-[Loda.me - Hướng dẫn Spring Boot + Redis](https://loda.me/huong-dan-spring-boot-redis-loda1557031434451)
-
-# Content without images
 
 ### Giới thiệu
 
@@ -50,7 +45,7 @@ Trong bài này chúng ta sẽ cấu hình cho `spring-data-redis` sử dụng `
 
 Cấu trúc thư mục bao gồm:
 
-![spring-redis-structure-code](../../images/loda1557031434451/2.jpg)
+![spring-redis-structure-code](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/redis.webp)
 
 ### Implement
 
@@ -233,9 +228,6 @@ Size of key loda: 2
 
 Tới đây các bạn có thể dễ dàng thao tác với các kiểu cấu trúc trong Redis thông qua `RedisTemplate`.
 
-Như mọi khi, [toàn bộ code mẫu đều được up tại GITHUB][link-github]
 
-[redis-link]: https://redis.io
-[link-github]: https://github.com/loda-kun/spring-boot-learning
 
 
