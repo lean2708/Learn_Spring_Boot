@@ -1,11 +1,4 @@
-# Source
-Vào link để xem chi tiết có hình ảnh minh họa:
 
-[Loda.me - [Spring Boot] Xử lý sự kiện với @EventListener + @Async][loda-link]
-
-[loda-link]: https://loda.me/spring-boot-xu-ly-su-kien-voi-event-listener-async-loda1559286387703
-
-# Content without images
 
 ### Giới thiệu
 
@@ -239,12 +232,3 @@ Lần này quá trình xử lý đã diễn ra đúng như chúng ta mong đợi
 
 ### Kết
 
-Và như mọi khi, [toàn bộ code đều được up lên Github][link-github].
-<a class="btn btn-icon btn-github mr-1" target="_blank" href="https://github.com/loda-kun/spring-boot-learning">
-<i class="fab fa-github"></i>
-</a>
-
-[link-github]: https://github.com/loda-kun/spring-boot-learning
-[link-spring-boot-0]: https://loda.me/spring-boot-0-series-lam-chu-spring-boot-tu-zero-to-hero-loda1558963914472
-[link-executor-1]: https://loda.me/khai-niem-thread-pool-va-executor-trong-java-loda1554800053212
-[link-executor-2]: https://loda.me/thread-pool-executor-va-nguyen-tac-quan-ly-pool-size-loda1554816034602
