@@ -1,15 +1,8 @@
-# Source
-Vào link để xem chi tiết có hình ảnh minh họa:
 
-[Loda.me - 「Spring Boot #17」 Chạy nhiều môi trường với Spring Profile][loda-link]
-
-[loda-link]: https://loda.me/spring-boot-17-chay-nhieu-moi-truong-voi-spring-profile-6f365b8305416dc88219ab99c1ff016e
-
-# Content without images
 ### Giới thiệu
 Tiếp nối series **Spring Boot**:
 
-1. [「Spring Boot #16」 Hướng dẫn sử dụng @ConfigurationProperties][link-spring-boot-16]
+1. 「Spring Boot #16」 Hướng dẫn sử dụng @ConfigurationProperties
 
 `Spring Profiles` là một core feature trong **Spring Framework**, cho phép chúng ta cấu hình ứng dụng, active/deactive `Bean` tùy theo môi trường.
 
@@ -177,7 +170,7 @@ export SPRING_PROFILES_ACTIVE=aws
 ```
 
 Nếu ai sử dụng `Intellij IDEA` thì có thể config ngay trong IDE như thế này, mỗi lần chạy nó tự active cho mình.
-![image-title-here](../../images/loda1552901817707/2.jpg){:class="center-image"}
+![image-title-here](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/file1.webp){:class="center-image"}
 
 ### 3. Cách sử dụng @Profile
 
@@ -254,7 +247,7 @@ public class LocalDatasourceConfig
 
 Cấu trúc thư mục:
 
-![spring-profiles](../../images/loda1558849286501/2.jpg)
+![spring-profiles](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/file2.webp)
 
 #### Tạo Model
 
@@ -331,12 +324,3 @@ LocalDatasource(url=Local object, Chỉ khởi tạo khi 'local' profile active)
 ### Kết
 
 Okiee lahhh, thế là mình đã giới thiệu xong với các bạn `Spring Profiles`, Đây là một tính năng cực kì cực kì hữu ích, hi vọng các bạn hiểu và nắm được kiến thức, áp dụng vào sản phẩm của chính mình. Chúc các bạn thành công!
-
-Và như mọi khi, [toàn bộ code đều được up lên Github][link-github].
-<a class="btn btn-icon btn-github mr-1" target="_blank" href="https://github.com/loda-kun/spring-boot-learning">
-<i class="fab fa-github"></i>
-</a>
-
-[link-lombok]: https://loda.me/general-huong-dan-su-dung-lombok-giup-code-java-nhanh-hon-69-loda1552789752787/
-[link-spring-boot-16]: https://loda.me/spring-boot-16-huong-dan-su-dung-configuration-properties-loda1558847989506
-[link-github]: https://github.com/loda-kun/spring-boot-learning
