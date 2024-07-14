@@ -1,16 +1,11 @@
-# Source
-Vào link để xem chi tiết có hình ảnh minh họa:
 
-[Loda.me - 「Spring Boot #9」Hướng dẫn chi tiết làm Web với Thymeleaf + Demo Full](https://loda.me/spring-boot-9-huong-dan-chi-tiet-lam-web-voi-thymeleaf-demo-full-loda1558267496214)
-
-# Content without images
 
 
 ### Giới thiệu
 
-[Trong bài trước][link-spring-boot-8], mình đã đề cập với các bạn kiến trúc web của **Spring Boot** và giới thiệu chức năng của `@Controller`. 
+Trong bài trước, mình đã đề cập với các bạn kiến trúc web của **Spring Boot** và giới thiệu chức năng của `@Controller`. 
 
-1. [「Spring Boot #8」Tạo Web Helloworld với @Controller][link-spring-boot-8]
+1. 「Spring Boot #8」Tạo Web Helloworld với @Controller
 
 Trong bài này, chúng ta sẽ tìm hiểu chi tiết hơn về **Thymeleaf** và sử dụng nó để làm một trang web đơn giản.
 
@@ -21,7 +16,7 @@ Trong bài này, chúng ta sẽ tìm hiểu chi tiết hơn về **Thymeleaf** v
 
 Các file HMTL do Thymeleaf tạo ra là nhờ kết hợp **dữ liệu** và **template + quy tắc** để sinh ra một file HTML chứa đầy đủ thông tin.
 
-![spring-thymeleaf](../../images/loda1558267496214/2.png)
+![spring-thymeleaf](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/thymeleaf.webp)
 
 Việc của bạn là cung cấp dữ liệu và quy định **template** như nào, còn việc dùng các thông tin đó để render ra HTML sẽ do **Thymeleaf** giải quyết.
 
@@ -214,13 +209,13 @@ _pom.xml_
 
 Cấu trúc thư mục:
 
-![spring-thymeleaf](../../images/loda1558267496214/3.jpg)
+![spring-thymeleaf](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/thymeleaf2.webp)
 
 #### Cấu hình thymeleaf
 
 Chúng ta sẽ cấu hình ứng dụng bằng file `application.properties`.
 
-![spring-thymeleaf](../../images/loda1558267496214/5.jpg)
+![spring-thymeleaf](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/thymeleaf3.webp)
 
 _application.properties_
 
@@ -251,7 +246,7 @@ Các trang website hỗ trợ đã ngôn ngữ (i18n) thì các message sẽ đ�
 
 **Thymeleaf** sẽ tự làm điều này cho chúng ta, vì ở trên chúng ta đã cấu hình cho nó vị trí lưu trũ các messages này rồi.
 
-![spring-thymeleaf](../../images/loda1558267496214/4.jpg)
+![spring-thymeleaf](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/thymeleaf4.webp)
 
 
 Ví dụ:
@@ -279,7 +274,7 @@ File `.html` là dạng template sử dụng để render ra webpage và trả v
 **Thymleaf** sẽ tự biết tìm đường tới những tài nguyên này.
 
 
-![spring-thymeleaf](../../images/loda1558267496214/6.jpg)
+![spring-thymeleaf](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/thymeleaf5.webp)
 
 #### index.html
 
@@ -334,7 +329,7 @@ public class App {
 
 Truy cập vào địa chỉ `http://localhost:8085/`
 
-![spring-thymeleaf](../../images/loda1558267496214/7.jpg)
+![spring-thymeleaf](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/thymeleaf6.webp)
 
 Ứng dụng hiện ra dòng chữ chào mừng lấy từ `messages` và button được trang trí nhờ bootstrap trong `static`.
 
@@ -440,11 +435,11 @@ _resources/templates/profile.html_
 
 Chúng ta chạy lại chương trình lần nữa và truy cập vào địa chỉ `http://localhost:8085/`.
 
-![spring-thymeleaf](../../images/loda1558267496214/7.jpg)
+![spring-thymeleaf](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/thymeleaf7.webp)
 
 Click vào Button **Loda Profile**. Trình duyệt sẽ đi tới đại chỉ `http://localhost:8085/profile`
 
-![spring-thymeleaf](../../images/loda1558267496214/8.jpg)
+![spring-thymeleaf](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/thymeleaf8.webp)
 
 Hiển thị ra toàn bộ thông tin.
 
@@ -452,12 +447,3 @@ Vậy là chúng ta đã thành công.
 
 ### Kết
 
-Như mọi khi, [toàn bộ code tham khảo tại Github][link-github]
-<a class="btn btn-icon btn-github mr-1" target="_blank" href="https://github.com/loda-kun/spring-boot-learning">
-<i class="fab fa-github"></i>
-</a>
-
-
-[link-spring-boot-8]: https://loda.me/spring-boot-8-tao-web-helloworld-voi-controller-loda1558189401113
-[link-lombok]: https://loda.me/general-huong-dan-su-dung-lombok-giup-code-java-nhanh-hon-69-loda1552789752787/
-[link-github]: https://github.com/loda-kun/spring-boot-learning
