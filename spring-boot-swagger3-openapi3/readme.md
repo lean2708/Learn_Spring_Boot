@@ -100,11 +100,11 @@ http://localhost:8080/swagger-ui-custom.html
 ```
 Chúng ta sẽ có được giao diện sau:
 
-![swagger](https://media.techmaster.vn/api/static/BPZDWx5G/0WNmzOyb)
+![swagger](https://github.com/lean2708/Learn_Spring_Boot/blob/master/docs/images/s31.png?raw=true)
 
 Bây giờ chúng ta hãy đi sâu vào điểm cuối /api/book và xem chi tiết về yêu cầu và phản hồi của nó:
 
-![spring-component](https://media.techmaster.vn/api/static/BPZDWx5G/3L5QwDCG)
+![spring-component](https://github.com/lean2708/Learn_Spring_Boot/blob/master/docs/images/se2.png?raw=true)
 
 **4. Tích hợp openapi springdoc với Spring WebFlux**
 
@@ -141,7 +141,7 @@ Lúc đầu, chúng ta có thể mong đợi SpringDoc sẽ thêm các tham số
 ```
 Bây giờ chúng ta có thể thấy nó đã thêm các tham số truy vấn dự kiến vào tài liệu:
 
-![api-swaggerr](https://media.techmaster.vn/api/static/BPZDWx5G/t1hfo9N5)
+![api-swaggerr](https://github.com/lean2708/Learn_Spring_Boot/blob/master/docs/images/s33.png?raw=true)
 
 **6. Sử dụng plugin Springdoc-openapi Maven**
 
@@ -223,7 +223,7 @@ public class Book {
 ```
 Bây giờ, tài liệu được tạo cho Book bean ta thấy có nhiều thông tin hơn một chút:
 
-![swagger-ui](https://media.techmaster.vn/api/static/BPZDWx5G/Brfncf_A)
+![swagger-ui](https://github.com/lean2708/Learn_Spring_Boot/blob/master/docs/images/s34.png?raw=true)
 
 **8. Tạo tài liệu bằng @ControllerAdvice và @ResponseStatus**
 
@@ -250,7 +250,7 @@ public class GlobalControllerExceptionHandler {
 
 Do đó, bây giờ chúng ta có thể xem tài liệu cho mã phản hồi 400 và 404:
 
-![s](https://media.techmaster.vn/api/static/BPZDWx5G/XELL0US9)
+![s](https://github.com/lean2708/Learn_Spring_Boot/blob/master/docs/images/s35.png?raw=true)
 
 **9. Tạo tài liệu bằng @Operation và @ApiResponses**
 
@@ -272,7 +272,7 @@ public Book findById(@Parameter(description = "id of book to be searched")
 }
 ```
 Và đây là hiệu ứng hiển thị:
-![sw](https://media.techmaster.vn/api/static/BPZDWx5G/VJQm1xpq)
+![sw](https://github.com/lean2708/Learn_Spring_Boot/blob/master/docs/images/s36.png?raw=true)
 
 Như chúng ta có thể thấy, văn bản đã thêm vào @Operation được đặt ở cấp hoạt động API. Tương tự, mô tả được thêm vào các phần tử @ApiResponse khác nhau trong chú thích vùng chứa @ApiResponses cũng hiển thị ở đây, bổ sung ý nghĩa cho các phản hồi API.
 
@@ -313,7 +313,7 @@ class FooController() {
 ```
 Bây giờ khi chúng ta nhấn vào URL tài liệu API của mình, chúng ta cũng sẽ thấy API Foo:
 
-![swa](https://media.techmaster.vn/api/static/BPZDWx5G/yk6FibOK)
+![swa](https://github.com/lean2708/Learn_Spring_Boot/blob/master/docs/images/s37.png?raw=true)
 
 Để tăng cường hỗ trợ các loại Kotlin, chúng ta có thể thêm phần dependency này (tìm phiên bản mới nhất tại https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-kotlin):
 ```java
@@ -325,7 +325,7 @@ Bây giờ khi chúng ta nhấn vào URL tài liệu API của mình, chúng ta 
 ```
 Sau đó, lược đồ Foo của chúng ta sẽ trông có nhiều thông tin hơn, giống như khi chúng ta thêm JSR-303 Bean Validation:
 
-![swag](https://media.techmaster.vn/api/static/BPZDWx5G/jhqGEKU2)
+![swag](https://github.com/lean2708/Learn_Spring_Boot/blob/master/docs/images/s38.png?raw=true)
 
 **11. Tổng kết**
 
