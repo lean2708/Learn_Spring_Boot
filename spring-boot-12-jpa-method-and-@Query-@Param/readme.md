@@ -1,14 +1,9 @@
-# Source
-Vào link để xem chi tiết có hình ảnh minh họa:
 
-[Loda.me - 「Spring Boot #12」Spring JPA Method + @Query](https://loda.me/spring-boot-12-spring-jpa-method-query-loda1558746200832)
-
-# Content without images
 ### Giới thiệu
 
-[Trong bài trước][link-spring-boot-11], mình đã giới thiệu với các bạn Spring JPA, với cách cài đặt và sử dụng hết sức dễ dàng.
+Trong bài trước, mình đã giới thiệu với các bạn Spring JPA, với cách cài đặt và sử dụng hết sức dễ dàng.
 
-1. [「Spring Boot #11」Hướng dẫn Spring Boot JPA + MySQL][link-spring-boot-11]
+1. 「Spring Boot #11」Hướng dẫn Spring Boot JPA + MySQL
 
 Nhưng trong thực tế, sẽ có một số yêu cầu nghiệp vụ nằm ngoài các method là JPA hỗ trợ sẵn, lúc này bạn phải tự tạo ra câu query của riêng mình.
 
@@ -211,7 +206,7 @@ _pom.xml_
 
 Cấu trúc thư mục:
 
-![spring-jpa](../../images/loda1558746200832/2.jpg)
+![spring-jpa](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/jpame1.webp)
 
 #### Tạo Database
 
@@ -396,19 +391,8 @@ Kết quả hoàn hảo tới mức Perfect :) Chúc bạn thành công
 
 Khi tới đây, tôi muốn bạn tham khảo thêm một số khái niệm sau nếu có thời gian:
 
-1. [Hướng dẫn sử dụng Criteria API trong Hibernate][link-criteria]
-2. [「Jpa」Hướng dẫn sử dụng @OneToOne][link-hiber-1]
-3. [「Jpa」Hướng dẫn @OneToMany và @ManyToOne][link-hiber-2]
-4. [「Jpa」Hướng dẫn @ManyToMany][link-hiber-3]
+1. Hướng dẫn sử dụng Criteria API trong Hibernate
+2. 「Jpa」Hướng dẫn sử dụng @OneToOne
+3. 「Jpa」Hướng dẫn @OneToMany và @ManyToOne
+4. 「Jpa」Hướng dẫn @ManyToMany
 
-Như mọi khi, [toàn bộ code tham khảo tại Github][link-github]
-<a class="btn btn-icon btn-github mr-1" target="_blank" href="https://github.com/loda-kun/spring-boot-learning">
-<i class="fab fa-github"></i>
-</a>
-
-[link-spring-boot-11]: https://loda.me/spring-boot-11-huong-dan-spring-boot-jpa-my-sql-loda1558687596060
-[link-github]: https://github.com/loda-kun/spring-boot-learning
-[link-criteria]: https://loda.me/huong-dan-su-dung-criteria-api-trong-hibernate-loda1552815848300
-[link-hiber-1]: https://loda.me/jpa-huong-dan-su-dung-one-to-one-loda1554476367261
-[link-hiber-2]: https://loda.me/jpa-huong-dan-one-to-many-va-many-to-one-loda1554518130613
-[link-hiber-3]: https://loda.me/jpa-huong-dan-many-to-many-loda1554524778629
