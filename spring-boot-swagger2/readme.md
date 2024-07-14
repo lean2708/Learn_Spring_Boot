@@ -129,4 +129,376 @@ http://localhost:8080/spring-security-rest/api/swagger-ui/
 ```
 
 Kết quả nhận được sẽ tuơng tự như sau:
-[a](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/sw1.webp)
+![a](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/sw1.webp)
+
+**5.2. Khám phá Swagger Documentation**
+Bên trong response của Swagger là một danh sách các controller đựoc định nghĩa trong ứng dụng của chúng ta. Click vào bất kỳ controller nào sẽ liệt kê ra cho chúng ta HTTP method khả dụng của nó (DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT)
+
+Nhấn mở rộng mỗi method sẽ cung cấp thêm những thông tin hữu dụng khác như là status của response, content-type, danh sách param. Ngoài ra còn có thể sử dụng thử các method này bằng UI của Swagger.
+
+Khả năng đồng bộ hóa của Swagger với base code của chúng ta là rất quan trọng. Để chứng minh điều này, chúng ta có thể thêm một controller mới vào ứng dụng của mình:
+
+```java
+@RestController
+public class CustomController {
+
+    @RequestMapping(value = "/custom", method = RequestMethod.POST)
+    public String custom() {
+        return "custom";
+    }
+}
+```
+
+Bây giờ khi refresh Swagger documentation, ta sẽ thấy custom-controller nằm chễm trệ trong danh sách controller. Như ta đã biết, sẽ chỉ có mỗi method POST hiển thị trong response của Swagger.
+
+**6. Spring data REST**
+Springfox cung cấp khả năng hỗ trợ cho Spring Data REST thông qua thử viện springfox-data-rest.
+
+Spring Boot sẽ lo việc auto-configuration nếu nó phát hiện ra spring-boot-starter-data-rest trên classpath.
+
+Bây giờ hãy tạo một entity User:
+
+```java
+@Entity
+public class User {
+    @Id
+    private Long id;
+    private String firstName;
+    private int age;
+    private String email;
+
+    // getters and setters
+}
+```
+
+Sau đó, ta sẽ tạo UserRespository để thêm CRUD vào User entity:
+
+```java
+@Repository
+public interface UserRepository extends CrudRepository<User, Long> {
+}
+```
+
+Cuối cùng, ta import class SpringDataRestConfiguration vào SpringFoxConfig class:
+
+```java
+@EnableSwagger2WebMvc
+@Import(SpringDataRestConfiguration.class)
+public class SpringFoxConfig {
+    //...
+}
+```
+
+Lưu ý: Tta sử dụng @EnableSwagger2WebMvc để kích hoạt Swagger vì nó đã thay thế cho @EnableSwagger2 trong version 3 của thư viện.
+
+Hãy khởi động lại ứng dụng để tạo ra thông số mới cho Spring REST API:
+![aa](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/sw2.webp)
+
+Ta có thể thấy Springfox đã tạo ra thông số của User entity với các HTTP methods như GET, POST, PUT, PATCH và DELETE.
+
+**7. Bean Validation**
+
+Springfox cũng hỗ trợ bean validation thông qua thư viện springfox-bean-validators .
+
+Đầu tiên ta thêm depndency Maven vào file pom.xml:
+
+```java
+<dependency>
+    <groupId>io.springfox</groupId>
+    <artifactId>springfox-bean-validators</artifactId>
+    <version>2.9.2</version>
+</dependency>
+```
+
+Một lần nữa, nếu t a sử dụng Spring Boot, chúng ta sẽ không cần cung cấp dependency rõ ràng.
+
+Tiếp theo, thêm một vào validation như @NotNull và @Min vào User entity:
+
+```java
+@Entity
+public class User {
+    //...
+    
+    @NotNull(message = "First Name cannot be null")
+    private String firstName;
+    
+    @Min(value = 15, message = "Age should not be less than 15")
+    @Max(value = 65, message = "Age should not be greater than 65")
+    private int age;
+}
+```
+
+Cuối cùng, ta import class BeanValidatorPluginsConfiguration vào SpringFoxConfig class:
+
+```java
+@EnableSwagger2
+@Import(BeanValidatorPluginsConfiguration.class)
+public class SpringFoxConfig {
+    //...
+}
+```
+
+Hãy xem sự thay đổi trên trang thông tin API:
+![aaaa](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/sw3.webp)
+
+ại đây, ta có thể quan sát rằng User model có required với trường firstName, đồng thời phần min max cũng được định nghĩa rõ ràng.
+
+**8. Plugin**
+Để thêm các tính năng cụ thể vào, chúng ta có thể tạo một plugin Springfox. Một plugin có thể cung cấp nhiều tính năng khác nhau, từ việc làm phong phú thêm các model và props đến danh sách API tùy chỉnh và mặc định.
+
+Springfox hỗ trợ tạo plugin thông qua module spi. Spi module cung cấp một vài giao diện như ModelBuilderPlugin, ModelPropertyBuilderPlugin và ApiListingBuilderPlugin hoạt động như một hook mở rộng để triển khai các custom plugin.
+
+Để chứng minh các khả năng, hãy tạo một plugin để làm phong phú thêm thuộc tính email của User model. Chúng ta sẽ sử dụng giao diện ModelPropertyBuilderPlugin và đặt các giá trị của pattern và example.
+
+Đầu tiên, hãy tạo class EmailAnnotationPlugin và ghi đè method support để cho phép bất kỳ loại tài liệu nào, chẳng hạn như Swagger 1.2 và Swagger 2:
+
+```java
+@Component
+@Order(Validators.BEAN_VALIDATOR_PLUGIN_ORDER)
+public class EmailAnnotationPlugin implements ModelPropertyBuilderPlugin {
+    @Override
+    public boolean supports(DocumentationType delimiter) {
+        return true;
+    }
+}
+```
+
+Sau đó ta ghi đè method apply của ModelPropertyBuilderPlugin để đặt values của builder properties:
+
+```java
+@Override
+public void apply(ModelPropertyContext context) {
+    Optional<Email> email = annotationFromBean(context, Email.class);
+     if (email.isPresent()) {
+        context.getSpecificationBuilder().facetBuilder(StringElementFacetBuilder.class)
+          .pattern(email.get().regexp());
+        context.getSpecificationBuilder().example("email@email.com");
+    }
+}
+```
+
+Vì vậy, các đặc tả API sẽ hiển thị pattern và giá trị examble của thuộc tính được chú thích bằng @Email.
+
+Tiếp theo, chúng ta sẽ thêm chú thích @Email vào User entity:
+
+```java
+@Entity
+public class User {
+    //...
+
+    @Email(regexp=".*@.*\\..*", message = "Email should be valid")
+    private String email;
+}
+
+Cuối cùng, ta kích hoạt EmailAnnotationPlugin bên trong class SpringFoxConfig bằng cách đăng ký như một bean:
+
+@Import({BeanValidatorPluginsConfiguration.class})
+public class SpringFoxConfig {
+    //...
+
+    @Bean
+    public EmailAnnotationPlugin emailPlugin() {
+        return new EmailAnnotationPlugin();
+    }
+}
+```
+
+Cùng ngó qua thành quả của chúng ta chút nhé:
+
+![aaaa](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/sw4.webp)
+
+Ta có thể thấy giá trị của pattern tuơng tự như regex từ email của User entity.
+
+Tương tự, giá trị của example (email@email.com) giống như ta đã định nghĩa ở hàm apply của EmailAnnotationPlugin
+
+**9. Configuration nâng cao**
+
+Docker bean của ứng dụng có thể đựoc cài đặt để cung cấp cho ta nhiều quyền kiểm soát đối với quá trình tạo API doc hơn.
+
+**9.1. Lọc API cho Swagger's response**
+Không phải lúc nào bạn cũng mong muốn để lộ doc của toàn bộ API. Chúng ta có thể hạn chế response của Swagger bằng cách truyền các tham số cho các phương thức apis() và path() của class Docket.
+
+Như đã thấy ở trên, RequestHandlerSelectors cho phép sử dụng bất kỳ hoặc không có vị từ nào nhưng cũng có thể được sử dụng để lọc API theo base package, class annotation và mothod annotation.
+
+PathSelectors cung cấp tính năng lọc bổ sung với các vị từ, giúp quét các đường dẫn yêu cầu của ứng dụng. Chúng ta có thể sử dụng any(), none(), regex() hoặc ant().
+
+Trong ví dụ dưới đây, chúng ta sẽ hướng dẫn Swagger để chỉ hiển thị bao gồm các controller từ một package cụ thể, với các đường dẫn cụ thể, sử dụng vị từ ant ():
+
+```java
+@Bean
+public Docket api() {                
+    return new Docket(DocumentationType.SWAGGER_2)          
+      .select()                                       
+      .apis(RequestHandlerSelectors.basePackage("com.baeldung.web.controller"))
+      .paths(PathSelectors.ant("/foos/*"))                     
+      .build();
+}
+```
+
+**9.2. Tùy chỉnh thông tin**
+Swagger cung cung cấp một số giá trị mặc định trong response thư mà ta có thể tùy chỉnh như là "API documentation", “Created by Contact Email” và “Apache 2.0”.
+
+Để thay đổi những giá trị này, ta sẽ dùng method apiInfo - ApiInfo class chứa thông tin tùy chỉnh về API::
+
+```java
+@Bean
+public Docket api() {                
+    return new Docket(DocumentationType.SWAGGER_2)          
+      .select()
+      .apis(RequestHandlerSelectors.basePackage("com.example.controller"))
+      .paths(PathSelectors.ant("/foos/*"))
+      .build()
+      .apiInfo(apiInfo());
+}
+
+private ApiInfo apiInfo() {
+    return new ApiInfo(
+      "My REST API", 
+      "Some custom description of API.", 
+      "API TOS", 
+      "Terms of service", 
+      new Contact("John Doe", "www.example.com", "myeaddress@company.com"), 
+      "License of API", "API license URL", Collections.emptyList());
+}
+```
+
+**9.3. Tùy chỉnh method Response message**
+
+Swagger cho phép ghi đè global các message response của các method HTTP thông qua phương thức globalResponses() của Docket.
+
+Đầu tiên, chúng ta cần hướng dẫn Swagger không sử dụng các message mặc định. Giả sử chúng ta muốn ghi đè các message response 500 và 403 cho tất cả các phương thức GET.
+
+Để làm điều này, một số code phải được thêm vào khối khởi tạo của Docket (code gốc bị loại trừ để rõ ràng hơn):
+
+```java
+.useDefaultResponseMessages(false)
+.globalResponses(HttpMethod.GET, newArrayList(
+    new ResponseBuilder().code("500")
+        .description("500 message").build(),
+    new ResponseBuilder().code("403")
+        .description("Forbidden!!!!!").build()
+));
+```
+
+Sau đó ta có: 
+
+![aaa1](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/sw5.webp)
+
+**10. Swagger UI với OAuth-Secured API**
+Swagger UI cung cấp một số tính năng rất hữu ích mà chúng ta đã đề cập kỹ từ đầu bài tới giờ. Nhưng chúng ta thực sự không thể sử dụng hầu hết những thứ này nếu API của chúng ta được bảo mật và không thể truy cập được.
+
+Hãy xem cách mà chúng ta có thể cho phép Swagger truy cập API được bảo mật bằng OAuth bằng cách sử dụngAuthorization Code trong ví dụ này.
+
+Chúng ta sẽ định cấu hình Swagger để truy cập API bảo mật củamình bằng cách sử dụng SecurityScheme và SecurityContext:
+
+```java
+@Bean
+public Docket api() {
+    return new Docket(DocumentationType.SWAGGER_2).select()
+        .apis(RequestHandlerSelectors.any())
+        .paths(PathSelectors.any())
+        .build()
+        .securitySchemes(Arrays.asList(securityScheme()))
+        .securityContexts(Arrays.asList(securityContext()));
+}
+```
+
+**10.1. Cài đặt bảo mật**
+Ta sẽ định nghĩa một bean SecurityConfiguration trong Swagger configuration và cài một số tùy chỉnh mặc định như sau:
+
+```java
+@Bean
+public SecurityConfiguration security() {
+    return SecurityConfigurationBuilder.builder()
+        .clientId(CLIENT_ID)
+        .clientSecret(CLIENT_SECRET)
+        .scopeSeparator(" ")
+        .useBasicAuthenticationWithAccessCodeGrant(true)
+        .build();
+}
+```
+
+**10.2. SecurityScheme**
+Sau đó ta sẽ định nghĩa SecurityScheme, nó sẽ dùng để diễn tả cách mà API được bảo mật (Basic Authentication, OAuth2, …)
+
+Trong trường hợp của chúng ta, ta sẽ định nghĩa OAuth sẽ đựoc dùng để bảo mật cho Resource Server của chúng ta:
+
+```java
+private SecurityScheme securityScheme() {
+    GrantType grantType = new AuthorizationCodeGrantBuilder()
+        .tokenEndpoint(new TokenEndpoint(AUTH_SERVER + "/token", "oauthtoken"))
+        .tokenRequestEndpoint(
+          new TokenRequestEndpoint(AUTH_SERVER + "/authorize", CLIENT_ID, CLIENT_SECRET))
+        .build();
+
+    SecurityScheme oauth = new OAuthBuilder().name("spring_oauth")
+        .grantTypes(Arrays.asList(grantType))
+        .scopes(Arrays.asList(scopes()))
+        .build();
+    return oauth;
+}
+```
+
+Lưu ý rằng ta dùng Authorization Code grant type, trong khi đó ta cần cung cấp token endpoint và URL authorization của OAuth2 Authorization Server.
+
+Và đây sẽ là scope mà ta cần định nghĩa:
+
+```java
+private AuthorizationScope[] scopes() {
+    AuthorizationScope[] scopes = { 
+      new AuthorizationScope("read", "for read operations"), 
+      new AuthorizationScope("write", "for write operations"), 
+      new AuthorizationScope("foo", "Access foo API") };
+    return scopes;
+}
+```
+
+Các scope này đồng bộ hóa với các scope mà chúng ta đã xác định trong ứng dụng của mình, cho API /foos.
+
+**10.3. SecurityContext**
+
+Cuối cùng, ta cần định nghĩa SecurityContext cho API:
+
+``java
+private SecurityContext securityContext() {
+    return SecurityContext.builder()
+      .securityReferences(
+        Arrays.asList(new SecurityReference("spring_oauth", scopes())))
+      .forPaths(PathSelectors.regex("/foos.*"))
+      .build();
+}
+```
+
+Lưu ý tên mà chúng ta sử dụng ở đây - spring_oauth - đồng bộ hóa với tên mà chúng ta đã sử dụng trước đây trong SecurityScheme.
+
+**10.4 Test**
+Bây giờ sau tất cả những gì đã setup, hãy xem qua thành quả của chúng ta. Tại Swagger UI hãy thử truy cập Foo API. Ta có thể truy cập Swagger UI local tại: http://localhost:8082/spring-security-oauth-resource/swagger-ui.html
+
+Như chúng ta có thể thấy, nút Authorize mới đã hiện ra:
+
+![a2](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/sw6.webp)
+
+Khi ta nhấn vào nút này, ta có thể thấy pop-up Authorize hiện ra để truy cập vào API được bảo mật:
+
+![a4](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/sw7.webp)
+
+Lưu ý rằng:
+
+Ta có thể thấy CLIENT_ID và CLIENT_SECRET như ta đã cài đặt trước đó.
+Hiện ta có thể lựa chọn scope mà ta cần.
+Đây là cách mà API được bảo mật hiển thị:
+
+![a8](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/sw8.webp)
+
+Và giờ, cuối cùng thì chúng ta đã có thể chạm vào API của mình.
+
+Tất nhiên, chúng ta cần phải cẩn thận với cách chúng ta hiển thị Swagger UI bên ngoài, khi cấu hình bảo mật này đang hoạt động.
+
+#11. Tổng kết
+Trong bài viết này, chúng ta thiết lập Swagger 2 để tạo tài liệu cho Spring REST API. Chúng ta cũng đã khám phá các cách để trực quan hóa và tùy chỉnh đầu ra của Swagger. Và cuối cùng, chúng ta đã xem xét cấu hình OAuth một cách đơn giản cho Swagger.
+
+Việc triển khai đầy đủ của hướng dẫn này có thể được tìm thấy trong project này. Để xem thiết lập trong dự án Boot, hãy xem module này.
+
+Đối với phần OAuth, code có sẵn trong repository spring-security-oauth.
+
+Cảm ơn các bạn đã theo dõi bài viết này. Mọi góp ý hãy để lại comment bên dưới nhé.
