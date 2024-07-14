@@ -63,7 +63,7 @@ Thử ví dụ này nhé:
 
 Chúng ta có một project có cấu trúc thư mục như này:
 
-![spring-bean-life-cycle](https://images.viblo.asia/9f6fb08c-3666-4b50-9428-c3562b0933f5.jpg)
+![spring-bean-life-cycle](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/scan.webp)
 
 Tôi tạo ra 2 Bean:
 
