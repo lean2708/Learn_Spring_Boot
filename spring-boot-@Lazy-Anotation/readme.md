@@ -1,9 +1,4 @@
-# Source
-Vào link để xem chi tiết có hình ảnh minh họa:
 
-[Loda.me - 「Spring Boot」Annotation @Lazy trong Spring Boot](https://loda.me/spring-boot-annotation-lazy-trong-spring-boot-loda1558283720495)
-
-# Content without images
 
 ### Tổng quan
 Như mặc định, Spring sẽ tạo tất cả các `singleton Bean` trong quá trình startup `Application Context`. Tuy nhiên, có những trường hợp chúng ta chưa dùng đến `Bean` khi mới startup `Application Context`, mà khi nào yêu cầu thì nó sẽ được tạo ra. Để làm được điều đó, Spring cho ra đời annotation `@Lazy.
@@ -137,20 +132,12 @@ Với những ví dụ đơn giản trên, các bạn cũng đã hiểu cơ bả
 
 ### Tham Khảo
 
-1. [「Spring Boot #1」Hướng dẫn @Component và @Autowired][link-spring-boot-1]
-2. [「Spring Boot #2」@Autowired - @Primary - @Qualifier][link-spring-boot-2]
-3. [「Spring Boot #3」Spring Bean Life Cycle + @PostConstruct và @PreDestroy][link-spring-boot-3]
-4. [「Spring Boot #4」@Component vs @Service vs @Repository][link-spring-boot-4]
-5. [「Spring Boot #5」Component Scan là gì?][link-spring-boot-5]
-6. [「Spring Boot #6」@Configuration và @Bean][link-spring-boot-6]
-7. [「Spring Boot #7」Spring Boot Application Config và @Value][link-spring-boot-7]
-8. [「Spring Boot #8」Tạo Web Helloworld với @Controller][link-spring-boot-8]
-[link-spring-boot-1]: https://loda.me/spring-boot-1-huong-dan-component-va-autowired-loda1557412317602
-[link-spring-boot-2]: https://loda.me/spring-boot-2-autowired-primary-qualifier-loda1557561089057
-[link-spring-boot-3]: https://loda.me/spring-boot-3-spring-bean-life-cycle-post-construct-va-pre-destroy-loda1557583753982
-[link-spring-boot-4]: https://loda.me/spring-boot-4-component-vs-service-vs-repository-loda1557627097246
-[link-spring-boot-5]: https://loda.me/spring-boot-5-component-scan-la-gi-loda1557673850320
-[link-spring-boot-6]: https://loda.me/spring-boot-6-configuration-va-bean-loda1557885506910
-[link-spring-boot-7]: https://loda.me/spring-boot-7-spring-boot-application-config-va-value-loda1558171356103
-[link-spring-boot-8]: https://loda.me/spring-boot-8-tao-web-helloworld-voi-controller-loda1558189401113
-[link-github]: https://github.com/loda-kun/spring-boot-learning
+1. 「Spring Boot #1」Hướng dẫn @Component và @Autowired
+2. 「Spring Boot #2」@Autowired - @Primary - @Qualifier
+3. 「Spring Boot #3」Spring Bean Life Cycle + @PostConstruct và @PreDestroy]
+4. 「Spring Boot #4」@Component vs @Service vs @Repository
+5. 「Spring Boot #5」Component Scan là gì?
+6. 「Spring Boot #6」@Configuration và @Bean
+7. 「Spring Boot #7」Spring Boot Application Config và @Value
+8. 「Spring Boot #8」Tạo Web Helloworld với @Controller
+
