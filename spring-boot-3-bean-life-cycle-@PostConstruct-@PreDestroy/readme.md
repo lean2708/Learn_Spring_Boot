@@ -61,7 +61,7 @@ Hôm nay chúng ta sẽ tìm hiểu kỹ hơn về vòng đời của `Bean`.
 
 Cấu trúc thư mục:
 
-![spring-bean-life-cycle](https://images.viblo.asia/9abceeb1-b770-4871-8a98-8846fd8b8bb7.jpg)
+![spring-bean-life-cycle](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/bean.webp)
 
 ### @PostConstruct
 
@@ -188,8 +188,7 @@ Lần thứ hai là do **Spring Boot** chạy sau khi nó được gọi `Spring
 
 ### Kết
 
-Như mọi khi, [code được up tại Github][link-github]
 
 [link-spring-boot-1]: https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-1-helloworld-%40Component-%40Autowired
 [link-spring-boot-2]: https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-2-helloworld-%40Primary%20-%20%40Qualifier
-[link-github]: https://github.com/lean2708/Learn_Spring_Boot/tree/master
+
