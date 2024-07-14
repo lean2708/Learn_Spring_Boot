@@ -12,7 +12,7 @@ Bài này yêu cầu kiến thức cơ bản:
 
 ### Cơ bản về Event & Listener
 
-![spring-profiles](../../images/loda1559286387703/2.jpg)
+![spring-profiles](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/event1.webp)
 
 Cơ bản là khi chương trình của bạn đang vận hành, và có một công việc gì đó, bạn không muốn xử lý trực tiếp tại Class hiện hành hoặc muốn thông báo cho các Đối tượng khác biết bạn vừa làm gì.
 
