@@ -129,3 +129,4 @@ http://localhost:8080/spring-security-rest/api/swagger-ui/
 ```
 
 Kết quả nhận được sẽ tuơng tự như sau:
+[a](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/sw1.webp)
