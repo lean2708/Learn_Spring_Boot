@@ -17,7 +17,7 @@ Kiến trúc MVC trong Spring Boot được xây dựng dựa trên tư tưởng
 
 Kiến trúc Controller-Service - Repository chia project thành 3 lớp:
 
-![spring-bean-life-cycle](https://github.com/techmely/hoc-lap-trinh/assets/29374426/1f22feb7-c049-4419-a7a1-9f8d64daf640)
+![spring-bean-life-cycle](https://github.com/lean2708/Learn_Spring_Boot/blob/master/docs/images/service.png?raw=true)
 
 **Consumer Layer hay Controller:** là tầng giao tiếp với bên ngoài và handler các request từ bên ngoài tới hệ thống.
 
@@ -260,9 +260,7 @@ Tuy nhiên từ góc độ thiết kế thì chúng ta cần phân rõ 3 Annotat
 
 ### Kết
 
-Như mọi khi, [code được up tại Github][link-github]
 
 [link-spring-boot-1]: https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-1-helloworld-%40Component-%40Autowired
 [link-spring-boot-2]: https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-2-helloworld-%40Primary%20-%20%40Qualifier
 [link-spring-boot-3]: https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-3-bean-life-cycle-%40PostConstruct-%40PreDestroy
-[link-github]: https://github.com/lean2708/Learn_Spring_Boot/tree/master
