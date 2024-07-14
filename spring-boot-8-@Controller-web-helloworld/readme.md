@@ -1,9 +1,4 @@
-# Source
-Vào link để xem chi tiết có hình ảnh minh họa: 
 
-[Loda.me - 「Spring Boot #8」Tạo Web Helloworld với @Controller + Thymeleaf](https://loda.me/spring-boot-8-tao-web-helloworld-voi-controller-loda1558189401113)
-
-# Content without images
 ### Giới thiệu
 
 Từ các qua trước tới giờ, tôi đã giới thiệu xong với bạn toàn bộ các khái niệm cơ bản về **Spring Boot** mà ai bắt đầu học đều phải biết. 
@@ -79,7 +74,7 @@ _pom.xml_
 
 Cấu trúc thư mục:
 
-![spring-configuration](../../images/loda1558189401113/2.jpg)
+![spring-configuration](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/controller.webp)
 
 ### @Controller
 
@@ -87,7 +82,7 @@ Cấu trúc thư mục:
 
 Để xây dựng một trang web với **Spring Boot**, bạn sẽ cần tuân theo quy trình như hình dưới đây:
 
-![spring-configuration](../../images/loda1558189401113/3.png)
+![spring-configuration](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/controller2.webp)
 
 
 `@Controller` là nơi tiếp nhận các thông tin request từ phía người dùng. Nó có nhiệm vụ đón nhận các yêu cầu (kèm theo thông tin request) và chuyển các yêu cầu này xuống cho tầng `@Serivce` xử lý logic.
@@ -98,7 +93,7 @@ Cấu trúc thư mục:
 
 Mặc định trong **Spring Boot**, các file html này sẽ được lưu trữ trong thư mục `resources/templates` như sau:
 
-![spring-boot-web](../../images/loda1558189401113/4.jpg)
+![spring-boot-web](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/controller3.webp)
 
 **Spring Boot + Thymeleaf** sẽ tìm kiếm các file này theo tên. 
 
@@ -167,7 +162,7 @@ Bạn hãy vào trình duyệt theo đường dẫn `http://localhost:8080/`
 Kết quả sẽ như sau:
 
 
-![spring-boot-web](../../images/loda1558189401113/5.jpg)
+![spring-boot-web](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/controller4.webp)
 
 
 ### Giải thích 1
@@ -201,7 +196,7 @@ Chúng ta mở rộng thêm một chút, để tạo trang **Hello Your Name!**
 
 Cấu trúc thư mục:
 
-![spring-configuration](../../images/loda1558189401113/2.jpg)
+![spring-configuration](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/controller5.webp)
 
 
 Mở rộng `WebController` như sau:
@@ -321,13 +316,13 @@ public class App {
 
 `http://localhost:8080/`
 
-![spring-boot-web](../../images/loda1558189401113/6.jpg)
+![spring-boot-web](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/controller6.webp)
 
 Nhập tên của bạn vào ô và submit. Nó sẽ tạo một request GET tới địa chỉ `/hello` kèm theo param `?name=your_name`.
 
 Ví dụ tôi nhập "Loda" nó sẽ request tới `http://localhost:8080/hello?name=Loda`
 
-![spring-boot-web](../../images/loda1558189401113/7.jpg)
+![spring-boot-web](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/controller7.webp)
 
 
 ### Giải thích 2
@@ -353,6 +348,8 @@ Tới đây bạn hãy tham chiếu đường dẫn request với hàm xử lý 
 
 Khi request lên, chúng ta nhận được giá trị của `name` và tiếp tục gán nó vào `Model`.
 
+![spring-boot](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/controller8.webp)
+
 `Model` ở đây là một object được **Spring Boot** đính kém trong mỗi response. 
 
 `Model` chứa các thông tin mà bạn muốn trả về và **Template Engine** sẽ trích xuất thông tin này ra thành html và đưa cho người dùng.
@@ -367,19 +364,3 @@ Chi tiết về `Thymeleaf` tôi sẽ giới thiệu ở bài sau, tạm thời 
 
 ### Kết
 
-Như mọi khi, [code được up tại Github][link-github]
-<a class="btn btn-icon btn-github mr-1" target="_blank" href="https://github.com/loda-kun/spring-boot-learning">
-<i class="fab fa-github"></i>
-</a>
-
-
-
-
-[link-spring-boot-1]: https://loda.me/spring-boot-1-huong-dan-component-va-autowired-loda1557412317602
-[link-spring-boot-2]: https://loda.me/spring-boot-2-autowired-primary-qualifier-loda1557561089057
-[link-spring-boot-3]: https://loda.me/spring-boot-3-spring-bean-life-cycle-post-construct-va-pre-destroy-loda1557583753982
-[link-spring-boot-4]: https://loda.me/spring-boot-4-component-vs-service-vs-repository-loda1557627097246
-[link-spring-boot-5]: https://loda.me/spring-boot-5-component-scan-la-gi-loda1557673850320
-[link-spring-boot-6]: https://loda.me/spring-boot-6-configuration-va-bean-loda1557885506910
-[link-spring-boot-7]: https://loda.me/spring-boot-7-spring-boot-application-config-va-value-loda1558171356103
-[link-github]: https://github.com/loda-kun/spring-boot-learning
