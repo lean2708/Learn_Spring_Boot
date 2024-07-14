@@ -133,7 +133,7 @@ Ví dụ:
 
 Cấu trúc thư mục:
 
-![spring-component](https://images.viblo.asia/2787b9e8-0cd0-4465-a431-c84deb891dd7.jpg)
+![spring-component](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/helloworld.webp)
 
 
 Chúng ta có một interface `Outfit`
