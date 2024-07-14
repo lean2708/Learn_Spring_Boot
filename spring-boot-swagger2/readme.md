@@ -499,7 +499,8 @@ Và giờ, cuối cùng thì chúng ta đã có thể chạm vào API của mìn
 
 Tất nhiên, chúng ta cần phải cẩn thận với cách chúng ta hiển thị Swagger UI bên ngoài, khi cấu hình bảo mật này đang hoạt động.
 
-#11. Tổng kết
+**11. Tổng kết**
+
 Trong bài viết này, chúng ta thiết lập Swagger 2 để tạo tài liệu cho Spring REST API. Chúng ta cũng đã khám phá các cách để trực quan hóa và tùy chỉnh đầu ra của Swagger. Và cuối cùng, chúng ta đã xem xét cấu hình OAuth một cách đơn giản cho Swagger.
 
 Việc triển khai đầy đủ của hướng dẫn này có thể được tìm thấy trong project này. Để xem thiết lập trong dự án Boot, hãy xem module này.
