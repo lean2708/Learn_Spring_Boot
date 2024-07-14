@@ -1,9 +1,4 @@
-# Source
 
-Vào link để xem chi tiết có hình ảnh minh họa: 
-
-[Loda.me - Hướng dẫn sử dụng @OneToOne](https://loda.me/jpa-huong-dan-su-dung-one-to-one-loda1554476367261)
-# Content without images
 
 Cách biểu thị quan hệ 1-1 trong cơ sở dữ liệu là rất phổ biến, ví dụ một người sẽ có một địa chỉ duy nhất (giả sử).
 
@@ -217,10 +212,5 @@ Bài viết của mình không còn gì để ngắn hơn được nữa :((( th
 
 Chúc các bạn học tập tốt! ahuu
 
-1. [Hướng dẫn sử dụng @OneToMany][link-onetomany]
-2. [Hướng dẫn sử dụng @ManyToMany][link-manytomany]
-
-[link-hibernate]: /hibernate-la-gi-loda1554623701594
-[link-lombok]: /general-huong-dan-su-dung-lombok-giup-code-java-nhanh-hon-69-loda1552789752787
-[link-onetomany]: /jpa-huong-dan-one-to-many-va-many-to-one-loda1554518130613
-[link-manytomany]: /jpa-huong-dan-many-to-many-loda1554524778629
+1. Hướng dẫn sử dụng @OneToMany
+2. Hướng dẫn sử dụng @ManyToMany
