@@ -1,10 +1,4 @@
-# Source
-Vào link để xem chi tiết có hình ảnh minh họa:
 
-[Loda.me - Hướng dẫn cấu hình nhiều tệp properties sử dụng Spring Cloud Config Server
-](https://loda.me/huong-dan-cau-hinh-nhieu-tep-properties-su-dung-spring-cloud-config-server-loda1556896823356)
-
-# Content without images
 
 ### Giới thiệu
 **Spring Cloud Config** là một mô-đun của **Spring Cloud** cung cấp việc lưu trữ và phục vụ các cấu hình phân tán trên nhiều ứng dụng và môi trường.
@@ -44,7 +38,7 @@ _pom.xml_
 ```
 Cấu trúc thư mục code bao gồm:
 
-![spring-cloud-config-server-structure-code](../../images/loda1556896823356/2.png)
+![spring-cloud-config-server-structure-code](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/image2/con1.webp)
 
 Tiếp theo, chúng tôi tạo folder `config` nằm trong package `resource` chứa các tệp cấu hình `properties` cho các ứng dụng. Để tạo các tệp `properties`, click chuột phải folder `config` chọn `new` -> `Resouce Bundle` -> `<File Name>`
 
@@ -153,7 +147,7 @@ _pom.xml_
 
 Cấu trúc thư mục code bao gồm:
 
-![spring-cloud-config-client-structure-code](../../images/loda1556896823356/3.png)
+![spring-cloud-config-client-structure-code](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/image2/con2.webp)
 
 _bootstrap.properties_
 
