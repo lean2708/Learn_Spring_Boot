@@ -1,22 +1,16 @@
-# Source
-
-Vào link để xem chi tiết có hình ảnh minh họa: 
-
-[Loda.me - Hướng dẫn Spring Security + Jpa Hibernate](https://loda.me/huong-dan-spring-security-jwt-json-web-token-hibernate-loda1556683105052)
-# Content without images
 
 ### Giới thiệu
 
 Xin chào các bạn, Trong hai bài trước tôi đã giới thiệu cách sử dụng **Spring Security** và kết nối với database để xác thực người dùng.
 
-1. [Spring Security Cơ bản][security-basic]
-2. [Spring Security + Hibernate][security-hibernate]
+1. Spring Security Cơ bản
+2. Spring Security + Hibernate
 
 Trong bài hôm nay chúng ta sẽ tìm hiểu một phần cực kỳ quan trọng trong các hệ thống bảo mật ngày nay, đó là **JWT**.
 
 **JWT (Json web Token)** là một chuỗi mã hóa được gửi kèm trong Header của client request có tác dụng giúp phía server xác thực request người dùng có hợp lệ hay không. Được sử dụng phổ biến trong các hệ thống API ngày nay.
 
-![spring-security](../../images/loda1556683105052/3.png)
+![spring-security](https://github.com/lean2708/Learn_Spring_Boot/blob/master/docs/image3/hj1.png?raw=true)
 
 ### Cài đặt
 
@@ -82,7 +76,7 @@ _pom.xml_
 Cấu trúc thư mục code bao gồm:
 
 
-![spring-security](../../images/loda1556683105052/2.jpg)
+![spring-security](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/image3/hj2.webp)
 
 
 ### Implement
@@ -496,29 +490,24 @@ public class App implements CommandLineRunner {
 Khi server on, chúng ta request thử tới địa chỉ `http://localhost:8080/api/random` mà không xác thực.
 
 
-![spring-security](../../images/loda1556683105052/5.jpg)
+![spring-security](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/image3/hj3.webp)
 
 Kết quả trả về mã lỗi `403` kèm theo message `Access Denied`.
 
 Để có thể request được, chúng ta đăng nhập vào hệ thống bằng `api/login` để lấy `jwt`.
 
-![spring-security](../../images/loda1556683105052/6.jpg)
+![spring-security](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/image3/hj4.webp)
 
 Sau đó sử dụng thông tin `jwt` server trả về để thực hiện các request khác.
 
-![spring-security](../../images/loda1556683105052/7.jpg)
+![spring-security](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/image3/hj5.webp)
 
 ### Kết
 
 Trong bài này, chúng ta đã tìm hiểu cách sử dụng **Spring Security** và **JWT** để có thể xác thực người dùng trong các hệ thống Restful API. Chúng ta sẽ tìm hiểu các cách xác thực `OAuth 2.0` ở các bài sau.
 
-Như mọi khi, [code bài viết được up tại Github][link-github]
 
 
 
-[security-hibernate]: /huong-dan-spring-security-jpa-hibernate-loda1556631547828
 [lombok]: /general-huong-dan-su-dung-lombok-giup-code-java-nhanh-hon-69-loda1552789752787
-[security-basic]: /huong-dan-spring-security-co-ban-de-hieu-loda1556592373421
-[link-github]: https://github.com/loda-kun/spring-boot-learning
-
 
