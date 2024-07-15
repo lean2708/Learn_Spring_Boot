@@ -1,9 +1,4 @@
-# Source
-Vào link để xem chi tiết có hình ảnh minh họa: 
 
-[Loda.me - Hướng dẫn Spring Security + Jpa Hibernate](https://loda.me/huong-dan-spring-security-jpa-hibernate-loda1556631547828)
-
-# Content without images
 ### Giới thiệu
 
 Trong [bài trước][link-security-basic], tôi đã hướng dẫn với các bạn về cách để sử dụng **Spring Security** cơ bản, cách kích hoạt, tạo user và phân quyền.
@@ -12,9 +7,9 @@ Trong bài này, chúng sẽ tìm hiểu cách để kiểm tra một `User` ở
 
 Trong bài viết giả định bạn đã có các kiến thức sau:
 
-1. [Hibernate][hibernate]
+1. Hibernate
 2. [Lombok][lombok]
-3. [Spring Security Cơ bản][link-security-basic]
+3. Spring Security Cơ bản
 
 ### Cài đặt
 
@@ -74,7 +69,7 @@ Khác với project trước đó, lần này chúng ta sử dụng thêm databa
 
 Thư mục code gồm có:
 
-![spring-security](../../images/loda1556631547828/2.jpg)
+![spring-security](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/image3/sh1.webp)
 
 ### Implement
 
@@ -367,28 +362,25 @@ public class App implements CommandLineRunner {
 
 Truy cập vào đường dẫn `http://localhost:8080/home` để vào trang chủ.
 
-![spring-security](../../images/loda1556592373421/3.jpg)
+![spring-security](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/image3/sh2.webp)
 
 Khi chưa đăng nhập, chúng ta truy cập vào đường dẫn `/hello`. Thì nó sẽ tự redirect sang trang `/login`.
 
-![spring-security](../../images/loda1556592373421/4.jpg)
+![spring-security](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/image3/sh3.webp)
 
 Khi đã đăng nhập thành công, chúng ta sẽ có thể vào trang `/hello` như bình thường.
 
-![spring-security](../../images/loda1556592373421/5.jpg)
+![spring-security](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/image3/sh4.webp)
 
 Khi click vào `Sign Out` thì sẽ đăng xuất.
 
-![spring-security](../../images/loda1556592373421/6.jpg)
+![spring-security](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/image3/sh5.webp)
 
 ### Kết
 
 Trong bài này, chúng ta đã tìm hiểu cách sử dụng Spring Security kết hợp với Hibernate để có thể xác thực người dùng trong cơ sở dữ liệu. Chúng ta sẽ tìm hiểu các cách xác thực `OAuth 2.0` ở các bài sau.
 
-Như mọi khi, [code bài viết được up tại Github][link-github]
 
 
-[link-security-basic]: /huong-dan-spring-security-co-ban-de-hieu-loda1556592373421
-[hibernate]: /jpa-huong-dan-su-dung-one-to-one-loda1554476367261
 [lombok]: /general-huong-dan-su-dung-lombok-giup-code-java-nhanh-hon-69-loda1552789752787
-[link-github]: https://github.com/loda-kun/spring-boot-learning
+
