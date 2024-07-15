@@ -1,291 +1,193 @@
+# ManyToMany
 
-Cách biểu thị quan hệ n-n trong cơ sở dữ liệu là rất phổ biến, ví dụ một địa chỉ có thể có nhiều người ở (gia đình). và một người có thể có nhiều hơn một địa chỉ.
+Quan hệ N-N là quan hệ giữa hai tập thực thể trong đó một thực thể của tập này có thể liên kết với 0, 1 hoặc nhiều thực thể của tập kia, và ngược lại. Thường quan hệ N-N có thêm phần dữ liệu giao nhau để thêm thông tin cụ thể cho mối quan hệ.
 
-Bình thường, khi các bạn tạo table trong csdl để biểu thị mối quan hệ này, chúng ta sẽ tạo ra một bảng mới, tham chiếu tới cả bảng này.
+**1. Ví dụ**
 
+Ta có mối quan hệ giữa bảng bài báo và bảng thẻ, một bài báo có thể có nhiều thẻ, 1 thẻ có thể xuất hiện trong nhiều bài báo.
 
-Thể hiện mỗi quan hệ này một cách đầy đủ trong `code` bằng `Hibernate` thì chúng ta sẽ dùng `@ManyToMany`
+![mm](https://github.com/lean2708/Learn_Spring_Boot/blob/master/docs/image3/mm1.jpg?raw=true)
 
+**2. Mapping các entity**
 
-Trong bài sử dụng các kiến thức:
+**Cách 1: Không tạo entity thứ 3**
 
-1. [Hibernate là gì?][link-hibernate]
-2. [Cách sử dụng Lombok để tiết kiệm thời gian code][link-lombok]
+Ta có quan hệ giữa Article và Tag như sau
+**Article Entity**
 
-
-### Tạo project
-
-Toàn bộ bài viết được up tại `Github`: [github.com/loda-kun/java-all](github.com/loda-kun/java-all)
-
-Chúng ta sẽ sử dụng `Gradle` để tạo một project có khai báo `Spring Boot` và `Jpa` để hỗ trợ cho việc demo `@ManyToMany`.
-
-Các bạn có thể tự tạo 1 project Spring-boot với gradle đơn giản tại: [https://start.spring.io](https://start.spring.io)
-
-```groovy
-plugins {
-    id 'org.springframework.boot' version '2.1.4.RELEASE'
-    id 'java'
+```java
+@Entity(name = "article")
+public class Article {
+  // ...
+  @ManyToMany
+  @JoinTable(
+      name = "article_tag",
+      joinColumns = @JoinColumn(name = "article_id"),
+      inverseJoinColumns = @JoinColumn(name = "tag_id")
+  )
+  private Set<Tag> tags = new HashSet<>();
 }
-apply plugin: 'io.spring.dependency-management'
+```
 
-group 'me.loda.java'
-version '1.0-SNAPSHOT'
+**Tag Entity**
 
-sourceCompatibility = 1.8
+```java
+@Entity(name = "tag")
+@Table(name = "tag")
+public class Tag {
 
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
+@ManyToMany(mappedBy = "tags")
+  Set<Article> articles = new HashSet<>();
+}
+```
+
+Trong Article entity, ta sử dụng annotation **@ManyToMany** và **@JoinTable**, **@JoinTable** được đặt ở entity là chủ sở hữu của mối quan hệ.
+Trong **@JoinTable** ta sử dụng các thuộc tính sau:
+thuộc tính **name** là tên bảng mới được sinh ra trong CSDL
+thuộc tính **JoinColumns** chỉ ra khóa ngoại - ứng với khóa chính của entity là chủ sở hữu của mối quan hệ (Article entity)
+thuộc tính **inverseJoinColumns** chỉ ra khóa ngoại - ứng với khóa chính của entity còn lại không phải chủ sở hữu của mối quan hệ
+Trong annotation **@ManyToMany** của Tag Entity ta sử dụng thuộc tính mappedBy = “tags”, thuộc tính này chỉ ra tên của thuộc tính ở entity đối diện dùng để mapping cho mối quan hệ (thuộc tính của entity đối diện có tên là tags)
+Ta thực thi ứng dụng như sau
+
+```java
+@Transactional
+    public void generateArticleTag() {
+        Tag sport = new Tag("Sport");
+        Tag fashion = new Tag("Fashion");
+        Tag technology = new Tag("Technology");
+
+        Article at1 = new Article("Ronaldo sang Việt nam thi đấu");
+        Article at2 = new Article("Pep Guardiola học lập trình Java");
+
+        at1.addTag(sport);
+        at2.addTag(sport);
+        at2.addTag(technology);
+
+        em.persist(sport);
+        em.persist(fashion);
+        em.persist(technology);
+
+        em.persist(at1);
+        em.persist(at2);
     }
-}
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    compileOnly 'org.projectlombok:lombok'
-    runtimeOnly 'com.h2database:h2'
-    annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-}
-
 ```
 
-Trong ứng dụng trên bạn sẽ thấy có `com.h2database:h2`. Đây là một **database**, tuy nhiên nó chỉ tồn tại trong bộ nhớ. Tức làm mỗi khi chạy chương trình này, nó sẽ tạo database trong `RAM`, và tắt chương trình đi nó sẽ mất.
+Sau khi thực thi ta thu được Log query như sau
 
-Chúng ta sẽ sử dụng `H2` thay cho `MySql` để cho.. tiện!
+```sql
+insert into tag (name, id) values (?, ?)
+insert into tag (name, id) values (?, ?)
+insert into tag (name, id) values (?, ?)
 
-Khi tạo xong project, sẽ có thư mục như sau:
+insert into article (title, id) values (?, ?)
+insert into article (title, id) values (?, ?)
 
+insert into article_tag (article_id, tag_id) values (?, ?)
+insert into article_tag (article_id, tag_id) values (?, ?)
+insert into article_tag (article_id, tag_id) values (?, ?)
+```
 
-![many-to-many](../../images/loda1554524778629/3.jpg){:class="center-image"}
+Cách làm này code sẽ ngắn gọn khi thao tác thêm mới, xoá. Đối với thao tác xoá sử dụng Set thay cho List sẽ giảm thiểu được số lượng câu sql sinh ra , tuy nhiên nhược điểm là cần dùng Set thay vì List.
 
+**Cách 2: Tạo ra thêm entity trung gian**
 
+Ta có 3 entity  có quan hệ với nhau như sau
 
-### Tạo Table
-
-Để tạo table, chúng ta tạo ra các `Class` tương ứng.
+**Student Entity**
 
 ```java
-
-import java.util.Collection;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
-@Entity // Đánh dấu đây là table trong db
-@Data // lombok giúp generate các hàm constructor, get, set v.v.
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-public class Address {
-
-    @Id //Đánh dấu là primary key
-    @GeneratedValue // Giúp tự động tăng
-    private Long id;
-
-    private String city;
-    private String province;
-
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    // Quan hệ n-n với đối tượng ở dưới (Person) (1 địa điểm có nhiều người ở)
-    @EqualsAndHashCode.Exclude // không sử dụng trường này trong equals và hashcode
-    @ToString.Exclude // Khoonhg sử dụng trong toString()
-    
-    @JoinTable(name = "address_person", //Tạo ra một join Table tên là "address_person"
-            joinColumns = @JoinColumn(name = "address_id"),  // TRong đó, khóa ngoại chính là address_id trỏ tới class hiện tại (Address)
-            inverseJoinColumns = @JoinColumn(name = "person_id") //Khóa ngoại thứ 2 trỏ tới thuộc tính ở dưới (Person)
-    )
-    private Collection<Person> persons;
+@Entity(name = "student")
+public class Student {
+   // ...
+  @OneToMany(mappedBy = "student")
+  private List<StudentSubject> studentSubjects = new ArrayList<>();
 }
-
 ```
+
+**Subject Entity**
 
 ```java
-@Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-public class Person {
+@Entity(name = "subject")
+public class Subject {
+  //...
+  @OneToMany(mappedBy = "subject")
+  private List<StudentSubject> studentSubjects = new ArrayList<>();
 
-    @Id
-    @GeneratedValue
-    private Long id;
-    private String name;
-
-   
-    // mappedBy trỏ tới tên biến persons ở trong Address.
-    @ManyToMany(mappedBy = "persons")
-    // LAZY để tránh việc truy xuất dữ liệu không cần thiết. Lúc nào cần thì mới query
-    @EqualsAndHashCode.Exclude
-    @Exclude
-    private Collection<Address> addresses;
 }
-
 ```
 
-
-Nếu chúng ta chưa tạo ra các table trong cơ sở dữ liệu, thì mặc định `Hibernate` sẽ bind dữ liệu từ class xuống và tạo table cho chúng ta.
-
-Bạn phải tạo file config `src\main\resources\application.properties` như sau để kết nối tới `H2` database nhé:
+**StudentSubject Entity**
 
 ```java
-spring.datasource.url=jdbc:h2:mem:testdb
-spring.datasource.driverClassName=org.h2.Driver
-spring.datasource.username=sa
-spring.datasource.password=
-// Không có password, vào thẳng luôn
-spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
-# Cho phép vào xem db thông qua web
-spring.h2.console.enabled=true
+@Entity(name = "student_subject")
+public class StudentSubject {
+  //...
+  @ManyToOne
+  @JoinColumn(name = "student_id")
+  private Student student;
+
+  @ManyToOne
+  @JoinColumn(name = "subject_id")
+  private Subject subject;
+
+  private float score; //extra column
+}
 ```
 
-
-### Chạy thử
-
-Bạn tạo file `ManyToManyExampleApplication` và cấu hình `Spring Boot` và khởi chạy chương trình.
+Với cách trên ta sinh ra thêm StudentSubject entity, entity thứ ba này sẽ có quan hệ ManyToOne với hai entity còn lại, ngoài ra trong entity này còn bổ sung thêm cột score.
+Khác với cách đầu tiên, bảng mới được sinh ra có khóa chính chỉ chứa một thuộc tính, khóa ngoại của bảng này là khóa chính của hai bảng còn lại.
+Ta thực thi ứng dụng như sau:
 
 ```java
-@SpringBootApplication
-@RequiredArgsConstructor
-public class ManyToManyExampleApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(ManyToManyExampleApplication.class, args);
-    }
-}
-```
-Sau khi chạy xong, hãy truy cập vào `http://localhost:8080/h2-console/` để vào xem database có gì nhé.
+@Transactional
+  public void generateStudentSubject() {
+    Student tom = new Student("Tom");
+    Student bob = new Student("Bob");
+    Student jane = new Student("Jane");
 
+    Subject math = new Subject("Math");
+    Subject music = new Subject("Music");
+    Subject computer = new Subject("Computer");
 
-![many-to-many](../../images/loda1554524778629/4.jpg){:class="center-image"}
+    StudentSubject tomMath = new StudentSubject(tom, math, 10f);
+    StudentSubject tomMusic = new StudentSubject(tom, music, 9f);
 
-Bạn sẽ thấy nó tạo table giống với mô tả ở đầu bài. Gồm có hai bảng chính là `address` và `person`. 
-Ngoài ra, sẽ tạo ra một bảng trung gian ở giữa liên kết hai bảng là `address_person`.
+    StudentSubject janeMath = new StudentSubject(jane, math, 9f);
 
+    em.persist(tom);
+    em.persist(bob);
+    em.persist(jane);
 
-### Thêm dữ liệu
+    em.persist(math);
+    em.persist(music);
+    em.persist(computer);
 
-Để thêm dữ liệu vào database, chúng ta sẽ dùng tới `Spring JPA` .
+    em.persist(tomMath);
+    em.persist(tomMusic);
+    em.persist(janeMath);
 
-
-```java
-import org.springframework.data.jpa.repository.JpaRepository;
-
-public interface AddressRepository extends JpaRepository<Address,Long> {
-}
-public interface PersonRepository extends JpaRepository<Person, Long> {
-}
-```
-
-Chúng ta sẽ tạo một chương trình `Spring Boot` đơn giản bằng cách sử dụng `CommandLineRunner` để chạy code ngay khi khởi động.
-
-```java
-import javax.transaction.Transactional;
-
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import com.google.common.collect.Lists;
-
-import lombok.RequiredArgsConstructor;
-
-@SpringBootApplication
-@RequiredArgsConstructor
-public class ManyToManyExampleApplication implements CommandLineRunner {
-    public static void main(String[] args) {
-        SpringApplication.run(ManyToManyExampleApplication.class, args);
-    }
-
-    // Sử dụng @RequiredArgsConstructor và final để thay cho @Autowired
-    private final PersonRepository personRepository;
-    private final AddressRepository addressRepository;
-
-    @Override
-    @Transactional
-    public void run(String... args) throws Exception {
-        // Tạo ra đối tượng Address
-        Address hanoi = Address.builder()
-                                 .city("hanoi")
-                                 .build();
-        Address hatay = Address.builder()
-                               .city("hatay")
-                               .build();
-
-        // Tạo ra đối tượng person
-        Person person1 = Person.builder()
-                              .name("loda1")
-                              .build();
-        Person person2 = Person.builder()
-                              .name("loda2")
-                              .build();
-
-        // set Persons vào address
-        hanoi.setPersons(Lists.newArrayList(person1, person2));
-        hatay.setPersons(Lists.newArrayList(person1));
-
-        // Lưu vào db
-        // Chúng ta chỉ cần lưu address, vì cascade = CascadeType.ALL nên nó sẽ lưu luôn Person.
-        addressRepository.saveAndFlush(hanoi);
-        addressRepository.saveAndFlush(hatay);
-
-
-        // Vào: http://localhost:8080/h2-console/ để xem dữ liệu đã insert
-
-        Address queryResult = addressRepository.findById(1L).get();
-        System.out.println(queryResult.getCity());
-        System.out.println(queryResult.getPersons());
-
-    }
-
-}
-// Output:
-// hanoi
-// [Person(id=2, name=loda1), Person(id=3, name=loda2)]
-
+    em.flush();
+  }
 ```
 
-Lưu ý ở đây chúng ta dùng `@Transactional`. Đê khiến toàn bộ code chạy trong hàm đều nằm trong `Session` quản lý của `Hibernate`. 
+# Nhận xét :
 
-Nếu không có `@Transactional` thì việc bạn gọi `address.getPersons()` sẽ bị lỗi, vì nó không thể query xuống database để lấy dữ liệu person lên được. Bạn ghi nhớ chỗ này nhé.
+Với cách làm này ta sẽ phải viết nhiều code hơn vì cần phải thao tác thêm/sửa/xóa với entity thứ 3 sinh ra.
+Tuy nhiên cách này có thể dùng List thay cho Set mà vẫn đảm bảo số lượng câu sql sinh ra ít nhất có thể với điều kiện mapping theo kiểu bidirectional.
+Sau khi thực thi ta thu được Log query như sau
 
-Kết quả trong database lúc này:
+```sql
+insert into student (name, id) values (?, ?)
+insert into student (name, id) values (?, ?)
+insert into student (name, id) values (?, ?)
 
-`Address`
+insert into subject (name, id) values (?, ?)
+insert into subject (name, id) values (?, ?)
+insert into subject (name, id) values (?, ?)
 
-![one-to-many](../../images/loda1554524778629/5.jpg){:class="center-image"}
+insert into student_subject (score, student_id, subject_id, id) values (?, ?, ?, ?)
+insert into student_subject (score, student_id, subject_id, id) values (?, ?, ?, ?)
+insert into student_subject (score, student_id, subject_id, id) values (?, ?, ?, ?)
+```
 
-`Person`
-![one-to-many](../../images/loda1554524778629/6.jpg){:class="center-image"}
-
-`Address_Person`
-![one-to-many](../../images/loda1554524778629/7.jpg){:class="center-image"}
-
-
-Bài viết của mình không còn gì để ngắn hơn được nữa :((( thật hổ thẹn, mình có up code lên đây, bạn chạy code cái là hiểu liền à:
-
- [github.com/loda-kun/java-all](github.com/loda-kun/java-all)
-
-Chúc các bạn học tập thật tốt! ahuu
-
-1. [Hướng dẫn sử dụng @OneToOne][link-onetoone]
-
-2. [Hướng dẫn sử dụng @OneToMany và @ManyToOne][link-onetomany]
-
+# Kết
