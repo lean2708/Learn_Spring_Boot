@@ -88,7 +88,9 @@ Mặc dù các ràng buộc và quy ước trên các nhà phát triển không 
 Mình đã từng thấy rất nhiều REST API thiết kế viết đại khái như sau:
 
 TEXT
+
 COPY
+
 **POST /create_post (tạo bài viết)**
 
 **GET /list_posts (lấy danh sách bài viết)**
@@ -104,7 +106,9 @@ Những **REST API** này vẫn hoạt động tốt, không vấn đề gì c�
 Các bạn hãy so sánh với thiết kế URL như sau:
 
 TEXT
+
 COPY
+
 **POST /v1/posts (tạo mới một bài viết)**
 
 **GET /v1/posts (lấy danh sách bài viết)**
