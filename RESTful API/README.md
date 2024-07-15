@@ -89,11 +89,15 @@ Mình đã từng thấy rất nhiều REST API thiết kế viết đại khái
 
 TEXT
 COPY
-**POST /create_post (tạo bài viết)
-GET /list_posts (lấy danh sách bài viết)
-POST /feature_posts (danh sách bài viết nổi bật)
-POST /edit_post/:post_id (edit bài viết với post_id)
-Các REST API chưa được thiết kế tốt cho lắm**
+**POST /create_post (tạo bài viết)**
+
+**GET /list_posts (lấy danh sách bài viết)**
+
+**POST /feature_posts (danh sách bài viết nổi bật)**
+
+**POST /edit_post/:post_id (edit bài viết với post_id)**
+
+Các REST API chưa được thiết kế tốt cho lắm
 
 Những **REST API** này vẫn hoạt động tốt, không vấn đề gì cả!! Có điều chúng không theo convention mà thôi. Việc này dẫn đến một rắc rối cho người làm document (hoặc chính người thiết kế ra) phải rà soát lại cái URL có chính xác không. Phía sử dụng API cũng phải thiết lập một danh sách API đúng như vậy luôn.
 
@@ -101,11 +105,15 @@ Các bạn hãy so sánh với thiết kế URL như sau:
 
 TEXT
 COPY
-**POST /v1/posts (tạo mới một bài viết)
-GET /v1/posts (lấy danh sách bài viết)
-GET /v1/posts/:post_id (lấy chi tiết bài viết với post_id cụ thể)
-PUT /v1/posts/:post_id (update bài viết với post_id cụ thể)
-DELETE /posts/:post_id (delete bài viết với post_id cụ thể)**
+**POST /v1/posts (tạo mới một bài viết)**
+
+**GET /v1/posts (lấy danh sách bài viết)**
+
+**GET /v1/posts/:post_id (lấy chi tiết bài viết với post_id cụ thể)**
+
+**PUT /v1/posts/:post_id (update bài viết với post_id cụ thể)**
+
+**DELETE /posts/:post_id (delete bài viết với post_id cụ thể)**
 
 Các REST API được thiết kế tốt hơn, đúng convention
 Cách thiết kế này các bạn sẽ thấy rằng có một nguyên tắc rất rõ ràng sử dụng các method request để nói lên được nhiệm vụ của API. Phần URI có thể giống nhau, không cần cứ phải chứa các động từ như: create, get, update, delete nữa. Resource name sẽ ở dạng số nhiều (plural).
