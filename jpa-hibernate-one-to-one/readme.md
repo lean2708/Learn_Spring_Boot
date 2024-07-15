@@ -1,209 +1,102 @@
+# One To One
 
+Trong bài này chúng ta sẽ cùng nhau tìm hiểu mối quan hệ One-To-One (1-1) và cách mapping nó trong hibernate như thế nào.
 
-Cách biểu thị quan hệ 1-1 trong cơ sở dữ liệu là rất phổ biến, ví dụ một người sẽ có một địa chỉ duy nhất (giả sử).
+Cùng bắt đầu với một ví dụ về user trong hệ thống. Đầu tiên ta có bảng Users, bảng này lưu các thông tin ít khi bị thay đổi của user, bảng user gồm các thuộc tính như (email, first_name, last_name, password), bảng này có thể dùng để phục phụ chức năng đăng nhập. Ta có bảng thứ hai là user_detail, bảng này chứa các thông tin thường xuyên thay đổi của user như address, job…bảng này sẽ chứa khóa ngoại liên kết với bảng user. Chúng ta có quan hệ giữa 2 bảng này như sau:
 
-Bình thường, khi các bạn tạo table trong csdl để biểu thị mối quan hệ này, thì sẽ có một bảng chứa khóa ngoại của bảng còn lại.
+![oo1](https://github.com/lean2708/Learn_Spring_Boot/blob/master/docs/image3/oo1.png?raw=true)
 
+Cùng đến với ví dụ thứ hai về mối quan hệ của bảng drug (thuốc) và bảng guide_line(hướng dẫn sử dụng thuốc). Mỗi một loại thuốc có thể có duy nhất một hướng dẫn sử dụng thuốc đó.
 
-Thể hiện mỗi quan hệ này trong `code` bằng `Hibernate` thì chúng ta sẽ dùng `@OneToOne`.
+![oo2](https://github.com/lean2708/Learn_Spring_Boot/blob/master/docs/image3/oo2.png?raw=true)
 
-Trong bài sử dụng các kiến thức:
+Sau đây là cách Mapping Entity cùng với Hibernate + Spring boot
+Ta có 2 entity sau:
 
-1. [Hibernate là gì?]
-2. [Cách sử dụng Lombok để tiết kiệm thời gian code]
-
-### Tạo project
-
-
-Chúng ta sẽ sử dụng `Gradle` để tạo một project có khai báo `Spring Boot` và `Jpa` để hỗ trợ cho việc demo `@OneToOne`.
-
-Các bạn có thể tự tạo 1 project Spring-boot với gradle đơn giản tại: [https://start.spring.io](https://start.spring.io)
-
-```groovy
-plugins {
-    id 'org.springframework.boot' version '2.1.4.RELEASE'
-    id 'java'
-}
-apply plugin: 'io.spring.dependency-management'
-
-group 'me.loda.java'
-version '1.0-SNAPSHOT'
-
-sourceCompatibility = 1.8
-
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
-}
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    compileOnly 'org.projectlombok:lombok'
-    runtimeOnly 'com.h2database:h2'
-    annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-}
-
-```
-
-Trong ứng dụng trên bạn sẽ thấy có `com.h2database:h2`. Đây là một **database**, tuy nhiên nó chỉ tồn tại trong bộ nhớ. Tức làm mỗi khi chạy chương trình này, nó sẽ tạo database trong `RAM`, và tắt chương trình đi nó sẽ mất.
-
-Chúng ta sẽ sử dụng `H2` thay cho `MySql` để cho.. tiện!
-
-
-
-### Tạo Table
-
-Để tạo table, chúng ta tạo ra các `Class` tương ứng.
+**Users Entity**
 
 ```java
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+public class Users {
+//...
+  @NaturalId
+  private String email;
 
-import lombok.Builder;
-import lombok.Data;
+  @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+  @PrimaryKeyJoinColumn
+  private UserDetail userDetail;
 
-@Entity // Hibernate entity
-@Data // Lombok 
-@Builder // Lombok
-public class Person { //Table person
-
-    @Id // Đánh dấu trường này là primary key
-    @GeneratedValue // Tự động tăng giá trị id
-    private Long id;
-    private String name;
+  public void setUserDetail(UserDetail userDetail) {
+    userDetail.setUser(this);
+    this.userDetail = userDetail;
+  }
+  //...
 }
 ```
 
+**UserDetail Entity**
+
 ```java
+@Table
 @Entity
 @Data
-@Builder
-public class Address { // Table address
-    @Id
-    @GeneratedValue
-    private Long id;
-
-    private String city;
-    private String province;
-
-    @OneToOne // Đánh dấu có mỗi quan hệ 1-1 với Person ở phía dưới
-    @JoinColumn(name = "person_id") // Liên kết với nhau qua khóa ngoại person_id
-    private Person person; 
+@NoArgsConstructor
+public class UserDetail {
+ //...
+  @OneToOne(fetch = FetchType.LAZY)
+  @MapsId
+  @JsonIgnore
+  private Users user;
+  //...
 }
 ```
 
-Nếu chúng ta chưa tạo ra các table trong cơ sở dữ liệu, thì mặc định `Hibernate` sẽ bind dữ liệu từ class xuống và tạo table cho chúng ta.
+**Chú thích**
 
-Bạn phải tạo file config `src\main\resources\application.properties` như sau để kết nối tới `H2` database nhé:
+**FetchType.LAZY** khi lấy đối tượng UserDetail từ database sẽ không lấy theo đối tượng User, ngược lại FetchType.EAGER sẽ lấy theo đối tượng User khi lấy đối tượng UserDetail từ database.
+**@MapsId** được sử dụng để chỉ định primary key trong quan hệ 1-1 và 1-N, trong ví dụ trên primary key của Users sẽ là primary key của bảng UserDetail
+MappedBy = “user” - thuộc tính mappedBy trong User entity dùng để cho JPA biết rằng thực thể User không chứa khóa ngoại, hãy tìm kiếm khóa ngoại trong thực thể **UserDetail** tại trường có tên là user. Khóa ngoại đó được chỉ ra bới giá trị của thuộc tính name trong annotation **@JoinColumn**.
+Trong mối quan hệ hai chiều (bi-directional), chúng ta dùng chú thích **@OneToOne** ở cả hai entity nhưng chỉ một entity là chủ sở hữu (owner) của mối quan hệ (relationship). Thông thường, entity con là chủ sở hữu của mối quan hệ và thực thể cha là bên nghịch đảo của mối quan hệ.
+Chủ sở hữu của mối quan hệ (entity UserDetail) chứa chú thích **@JoinColumn** để chỉ ra cột nào là khóa ngoại và entity nào là nghịch đảo của mối quan hệ (entity User). Entity nghịch đảo này sẽ chứa thuộc tính mappedBy để chỉ ra rằng mối quan hệ được ánh xạ bởi thực thể còn lại.
+**@NaturalId** chỉ ra cột được dùng như là id, hibernate sẽ cung cấp các api loading entity theo cột này và mang lại các lợi ích giống như loading bằng cột id.
+N
+**aturalIdLoadAccess** cung cấp 2 cách lấy entity:
 
+**load**: lấy reference của entity, entity state đã được khởi tạo trước đó
+**getReference**: lấy reference của entity, entity state không cần khởi tạo trước đó, nếu entity state đã nằm trong session reference của entity sẽ được trả về, nếu entity chưa nằm trong session và entity hỗ trợ proxy thì uninitialized proxy sẽ được khởi tạo và trả về, trường hợp cuối cùng entity không hỗ trợ proxy thì entity sẽ được load từ database
+Natual id cho phép cache entity ở mức session và level 2.
+
+Sau đó ta thực thi ứng dụng như sau:
 ```java
-spring.datasource.url=jdbc:h2:mem:testdb
-spring.datasource.driverClassName=org.h2.Driver
-spring.datasource.username=sa
-spring.datasource.password=
-// Không có password, vào thẳng luôn
-spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
-# Cho phép vào xem db thông qua web
-spring.h2.console.enabled=true
+ @Transactional
+  public void generateUsers() {
+    User u1 = new User("John", "john@gmail.com");
+    UserDetail ud1 = new UserDetail("Developer", "1 Ngô Quyền, Hà nội");
+    u1.setUserDetail(ud1);
+    em.persist(u1);
+  }
 ```
 
-### Chạy thử
-
-Bạn tạo file `OneToOneExampleApplication` và cấu hình `Spring Boot` và khởi chạy chương trình.
-
-```java
-@SpringBootApplication
-@RequiredArgsConstructor
-public class OneToOneExampleApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(OneToOneExampleApplication.class, args);
-    }
-}
+Ta thu được log query như sau
+```sql
+insert into user (email, fullname, id) values (?, ?, ?)
+insert into user_detail (address, job, user_id) values (?, ?, ?)
 ```
 
-Sau khi chạy xong, hãy truy cập vào `http://localhost:8080/h2-console/` để vào xem database có gì nhé.
+**Sử dụng mối quan hệ 1-1 khi nào**
 
+**Tối đa hóa caching bằng việc phân hóa dữ liệu theo chiều dọc.**
 
-Bạn sẽ thấy nó tạo table giống với mô tả ở đầu bài. Với khóa ngoại `person_id` ở bảng `address`.
+Cơ sở dữ liệu thường lưu bộ nhớ đệm theo trang, thay vì cột. 
+Ví dụ: Trong 1 câu truy vấn nếu số lượng các trường lấy ra tương đối ít so với số trường của bảng thì cơ sở dữ liệu vẫn sẽ lưu vào bộ nhớ đệm toàn bộ hàng đó, hệ quả là những thông tin không thực sự cần thiết vẫn sẽ được lưu trong bộ nhớ đệm. Để giải quyết vấn đề này chúng ta có thể nghĩ tới phương án phân dùng dữ liệu theo chiều dọc. Những trường thường được sử dụng hơn sẽ được tách ra 1 bảng, những trường ít được sử dụng hơn sẽ nằm trong bảng còn lại, hai bảng này có mối quan hệ 1-1 với nhau
 
-### Thêm dữ liệu
+**Phân tách vùng dữ liệu thường xuyên bị khóa ra khỏi vùng dữ liệu còn lại**
 
-Để thêm dữ liệu vào database, chúng ta sẽ dùng tới `Jpa`.
+Thông thường cơ sở dữ liệu chỉ có thể khóa toàn bộ hàng, không thể khóa một vài trường. Bằng việc phân hóa dữ liệu theo chiều dọc như cách thứ nhất chúng ta có thể đảm bảo khóa được các trường khi cần thiết mà vẫn đảm bảo tính sẵn sàng của các trường còn lại.
 
-```java
-import org.springframework.data.jpa.repository.JpaRepository;
+**Vấn đề bảo mật**
 
-public interface AddressRepository extends JpaRepository<Address,Long> {
-}
-public interface PersonRepository extends JpaRepository<Person, Long> {
-}
-```
+Đôi khi có những trường cần được bảo mật, chúng ta có thể tách những trường đó ra một bảng riêng.
 
-Chúng ta sẽ tạo một chương trình `Spring Boot` đơn giản bằng cách sử dụng `CommandLineRunner` để chạy code ngay khi khởi động.
+**Do nghiệp vụ**
 
-```java
-import javax.transaction.Transactional;
-
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import com.google.common.collect.Lists;
-
-import lombok.RequiredArgsConstructor;
-
-@SpringBootApplication
-@RequiredArgsConstructor
-public class OneToOneExampleApplication implements CommandLineRunner {
-    public static void main(String[] args) {
-        SpringApplication.run(OneToOneExampleApplication.class, args);
-    }
-
-    // Sử dụng @RequiredArgsConstructor và final để thay cho @Autowired
-    private final PersonRepository personRepository;
-    private final AddressRepository addressRepository;
-
-    @Override
-    public void run(String... args) throws Exception {
-        // Tạo ra đối tượng person
-        Person person = Person.builder()
-                              .name("loda")
-                              .build();
-        // Lưu vào db
-        personRepository.save(person);
-
-        // Tạo ra đối tượng Address có tham chiếu tới person
-        Address address = Address.builder()
-                .city("Hanoi")
-                .person(person)
-                .build();
-
-        // Lưu vào db
-        addressRepository.save(address);
-
-        // Vào: http://localhost:8080/h2-console/ để xem dữ liệu đã insert
-    }
-}
-
-```
-
-Kết quả trong database lúc này
-
-Vậy là thằng `Address` đã liên kết tới `Person` có `id=1`. Đúng như ta mong đợi. 
-
-Bài viết của mình không còn gì để ngắn hơn được nữa :((( thật hổ thẹn, mình có up code lên đây, bạn chạy code cái là hiểu liền à
-
-Chúc các bạn học tập tốt! ahuu
-
-1. Hướng dẫn sử dụng @OneToMany
-2. Hướng dẫn sử dụng @ManyToMany
+Do vấn đề ngữ nghĩa của nghiệp vụ chúng ta cần chia tách ra 2 bảng riêng thay vì gộp chúng vào làm một.
