@@ -133,7 +133,6 @@ public class OneToOneExampleApplication {
 
 Sau khi chạy xong, hãy truy cập vào `http://localhost:8080/h2-console/` để vào xem database có gì nhé.
 
-![one-to-one](../../images/loda1554476367261/4.jpg){:class="center-image"}
 
 Bạn sẽ thấy nó tạo table giống với mô tả ở đầu bài. Với khóa ngoại `person_id` ở bảng `address`.
 
