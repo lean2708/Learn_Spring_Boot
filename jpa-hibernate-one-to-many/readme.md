@@ -296,6 +296,7 @@ where  pc.post_id = 1
 Ngay cả khi bộ sưu tập không được quản lý nữa, việc chỉ thêm hoặc xóa các thực thể con bất cứ khi nào cần thiết là điều khá đơn giản. Đối với việc cập nhật các đối tượng con, cơ chế kiểm tra độ bẩn hoạt động tốt ngay cả khi bạn không sử dụng bộ sưu tập được quản lý. Điều thú vị khi sử dụng truy vấn là bạn có thể phân trang nó theo bất kỳ cách nào bạn thích để nếu số lượng thực thể con tăng lên theo thời gian, hiệu suất ứng dụng sẽ không bị ảnh hưởng.
 
 **6. Kết luận**
+
 Như bạn sẽ thấy trong bài viết, tập hợp hai chiều tốt hơn tập hợp một chiều vì chúng dựa vào liên kết @ManyToOne , luôn hiệu quả về mặt câu lệnh SQL được tạo .
 
 Nhưng sau đó, ngay cả khi chúng rất tiện lợi, bạn không phải lúc nào cũng phải sử dụng các bộ sưu tâp(collections). Sự liên kết @ManyToOne là cách tự nhiên nhất và cũng hiệu quả nhất để ánh xạ mỗi quan hệ cơ sở dữ liệu một - nhiều.
