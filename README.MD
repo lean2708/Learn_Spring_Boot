@@ -102,7 +102,7 @@ Bạn nên `fork` hoặc `star` repository này để nó lưu vào tài khoản
 31. [spring-boot-swagger3-openapi3](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-swagger3-openapi3): RESTful API Document với Spring Boot + OpenApi 3.0
 
 ### II. Spring Cloud (Đang xây dựng >.<) 
-1. [spring-cloud-config-server](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-cloud-config-server) + [spring-cloud-config-client](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-cloud-config-client): Hướng dẫn cấu hình nhiều properties bằng Spring Cloud Config Server
+1. [spring-cloud-config-server + spring-cloud-config-client](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-cloud-config-server) +: Hướng dẫn cấu hình nhiều properties bằng Spring Cloud Config Server
 
 ### III. JPA & Hibernate
 
