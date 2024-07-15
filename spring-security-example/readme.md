@@ -1,10 +1,4 @@
-# Source
 
-Vào link để xem chi tiết có hình ảnh minh họa: 
-
-[Loda.me - Hướng dẫn Spring Security cơ bản, dễ hiểu](https://loda.me/huong-dan-spring-security-co-ban-de-hieu-loda1556592373421)
-
-# Content without images
 
 ### Giới thiệu
 
@@ -74,7 +68,7 @@ _pom.xml_
 
 Thư mục code gồm có:
 
-![spring-security](../../images/loda1556592373421/2.jpg)
+![spring-security](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/image3/se1.webp)
 
 ### Implement
 
@@ -282,30 +276,22 @@ public class App {
 ```
 Khi chạy xong, truy cập vào đường dẫn `http://localhost:8080/home` để vào trang chủ.
 
-![spring-security](../../images/loda1556592373421/3.jpg)
+![spring-security](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/image3/se2.webp)
 
 Khi chưa đăng nhập, chúng ta truy cập vào đường dẫn `/hello`. Thì nó sẽ tự redirect sang trang `/login`.
 
-![spring-security](../../images/loda1556592373421/4.jpg)
+![spring-security](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/image3/se3.webp)
 
 Khi đã đăng nhập thành công, chúng ta sẽ có thể vào trang `/hello` như bình thường.
 
-![spring-security](../../images/loda1556592373421/5.jpg)
+![spring-security](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/image3/se4.webp)
 
 Khi click vào `Sign Out` thì sẽ đăng xuất.
 
-![spring-security](../../images/loda1556592373421/6.jpg)
+![spring-security](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/image3/se5.webp)
 
 
 ### Kết
 
 Trong bài này, tôi đã giới thiệu với các bạn về **Spring Security** đồng thời giới thiệu các khái niệm cơ bản về User và phân quyền. Ở các bài nâng cao sau, tôi sẽ giới thiệu thêm với các bạn về cách xác thực người dùng trong csdl và xác thực bằng `OAuth 2.0`
 
-Như mọi khi, [code bài viết được up tại Github][link-github]
-
-Bài viết liên quan:
-
-1. [Hướng dẫn Spring Security + Jpa Hibernate][link-security-hibernate]
-
-[link-github]: https://github.com/loda-kun/spring-boot-learning
-[link-security-hibernate]: /huong-dan-spring-security-jpa-hibernate-loda1556631547828
