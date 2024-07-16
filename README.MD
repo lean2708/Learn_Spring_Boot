@@ -88,6 +88,7 @@ Bạn nên `fork` hoặc `star` repository này để nó lưu vào tài khoản
 17. [spring-boot-Response Entity](https://github.com/lean2708/Learn_Spring_Boot/tree/master/ResponseEntity): Sử dụng Spring ResponseEntity để thao tác phản hồi HTTP
 17. [spring-boot-15-@ControllerAdvice-@RestControllerAdvice-@ExceptionHandler-@ResponseStatus](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-15-%40ControllerAdvice-%40RestControllerAdvice-%40ExceptionHandler-%40ResponseStatus):  Exception Handling @ExceptionHandler + @RestControllerAdvice / @ControllerAdvice + @ResponseStatus 
 18. [spring-boot- Validate Input Data](https://github.com/lean2708/Learn_Spring_Boot/tree/master/Validate%20Input): Validate Input Data Trong Spring Boot (Phần 1)
+18. [spring-boot- Validate Enum](https://github.com/lean2708/Learn_Spring_Boot/tree/master/Validate%20Enum%20): Validate Enum Trong Spring Boot (Phần 2)
 18. [spring-boot-16-@ConfigurationProperties](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-16-%40ConfigurationProperties):  Hướng dẫn sử dụng @ConfigurationProperties
 19. [spring-boot-17-spring-profiles](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-17-spring-profiles):  Chạy nhiều môi trường với Spring Profile
 20. [spring-boot-18-testing-in-spring-boot](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-18-testing-in-spring-boot):  Hướng dẫn chi tiết Test Spring Boot (Phần 1)
