@@ -71,25 +71,26 @@ Bạn nên `fork` hoặc `star` repository này để nó lưu vào tài khoản
 3. [basic-DTO](https://github.com/lean2708/Learn_Spring_Boot/tree/master/DTO): Convert DTO trong Java
 4. [basic-API](https://github.com/lean2708/Learn_Spring_Boot/tree/master/API): API là gì 
 5. [basic-RESTful API](https://github.com/lean2708/Learn_Spring_Boot/tree/master/RESTful%20API): REST API là gì? Cách thiết kế REST API
-3. [spring-boot-1-helloworld-@Component-@Autowired](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-1-helloworld-%40Component-%40Autowired): 「SP-#1」Hướng dẫn @Component và @Autowired
-4. [spring-boot-2-helloworld-@Primary - @Qualifier](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-2-helloworld-%40Primary%20-%20%40Qualifier): 「SP-#2」@Autowired - @Primary - @Qualifier
+3. [spring-boot-1-helloworld-@Component-@Autowired](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-1-helloworld-%40Component-%40Autowired): Hướng dẫn @Component và @Autowired
+4. [spring-boot-2-helloworld-@Primary - @Qualifier](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-2-helloworld-%40Primary%20-%20%40Qualifier): @Autowired - @Primary - @Qualifier
 5. [spring-boot-3-bean-life-cycle-@PostConstruct-@PreDestroy](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-3-bean-life-cycle-%40PostConstruct-%40PreDestroy): 「SP-#3」Spring Bean Life Cycle + @PostConstruct và @PreDestroy
-6. [spring-boot-4-@Component-@Service-@Repository](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-4-%40Component-%40Service-%40Repository): 「SP-#4」@Component vs @Service vs @Repository
-7. [spring-boot-5-Component-Scan](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-5-Component-Scan): 「SP-#5」Component Scan là gì?
-8. [spring-boot-6-@configuration-@Bean](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-6-%40configuration-%40Bean): 「SP-#6」@Configuration và @Bean
-9. [spring-boot-7-spring-application-properties-@Value](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-7-spring-application-properties-%40Value): 「SP-#7」Spring Boot Application Config và @Value
-10. [spring-boot-8-@Controller-web-helloworld](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-8-%40Controller-web-helloworld): 「SP-#8」Tạo Web Helloworld với @Controller
-11. [spring-boot-9-thymeleaf](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-9-thymeleaf): 「SP-#9」Hướng dẫn chi tiết làm Web với Thymeleaf + Demo Full
-12. [spring-boot-10-@PostMapping-@ModelAttribute-thymeleaf](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-10-%40PostMapping-%40ModelAttribute-thymeleaf): 「SP-#10」@RequestMapping + @PostMapping + @ModelAttribute + @RequestParam + Web To-Do với Thymeleaf
-13. [spring-boot-11-JPA-MySQL](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-11-JPA-MySQL): 「SP-#11」Hướng dẫn Spring Boot JPA + MySQL
-14. [spring-boot-12-jpa-method-and-@Query-@Param](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-12-jpa-method-and-%40Query-%40Param): 「SP-#12」Spring JPA Method + @Query
-15. [spring-boot-13-spring-boot-thymeleaf-mysql-web](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-13-spring-boot-thymeleaf-mysql-web): ⚡️「SP-#13 Special」 Chi tiết Spring Boot + Thymeleaf + MySQL + i18n + Web Demo
-16. [spring-boot-14-restful-api-@RestController-@RequestBody-@PathVariable](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-14-restful-api-%40RestController-%40RequestBody-%40PathVariable): 「SP-#14」 Restful API + @RestController + @PathVariable + @RequestBody
-17. [spring-boot-15-@ControllerAdvice-@RestControllerAdvice-@ExceptionHandler-@ResponseStatus](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-15-%40ControllerAdvice-%40RestControllerAdvice-%40ExceptionHandler-%40ResponseStatus): 「SP-#15」 Exception Handling @ExceptionHandler + @RestControllerAdvice / @ControllerAdvice + @ResponseStatus 
-18. [spring-boot-16-@ConfigurationProperties](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-16-%40ConfigurationProperties): 「SP-#16」 Hướng dẫn sử dụng @ConfigurationProperties
-19. [spring-boot-17-spring-profiles](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-17-spring-profiles): 「SP-#17」 Chạy nhiều môi trường với Spring Profile
-20. [spring-boot-18-testing-in-spring-boot](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-18-testing-in-spring-boot): 「SP-#18」 Hướng dẫn chi tiết Test Spring Boot
-21. [spring-boot-19-testing-in-spring-boot-2](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-19-testing-in-spring-boot-2): 「SP-#19」 Hướng dẫn chi tiết Test Spring Boot (Phần 2)
+6. [spring-boot-4-@Component-@Service-@Repository](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-4-%40Component-%40Service-%40Repository): @Component vs @Service vs @Repository
+7. [spring-boot-5-Component-Scan](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-5-Component-Scan): Component Scan là gì?
+8. [spring-boot-6-@configuration-@Bean](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-6-%40configuration-%40Bean): @Configuration và @Bean
+9. [spring-boot-7-spring-application-properties-@Value](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-7-spring-application-properties-%40Value): Spring Boot Application Config và @Value
+10. [spring-boot-8-@Controller-web-helloworld](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-8-%40Controller-web-helloworld): Tạo Web Helloworld với @Controller
+11. [spring-boot-9-thymeleaf](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-9-thymeleaf): Hướng dẫn chi tiết làm Web với Thymeleaf + Demo Full
+12. [spring-boot-10-@PostMapping-@ModelAttribute-thymeleaf](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-10-%40PostMapping-%40ModelAttribute-thymeleaf):  @RequestMapping + @PostMapping + @ModelAttribute + @RequestParam + Web To-Do với Thymeleaf
+13. [spring-boot-11-JPA-MySQL](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-11-JPA-MySQL): Hướng dẫn Spring Boot JPA + MySQL
+14. [spring-boot-12-jpa-method-and-@Query-@Param](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-12-jpa-method-and-%40Query-%40Param): Spring JPA Method + @Query
+15. [spring-boot-13-spring-boot-thymeleaf-mysql-web](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-13-spring-boot-thymeleaf-mysql-web): ⚡️ Chi tiết Spring Boot + Thymeleaf + MySQL + i18n + Web Demo
+16. [spring-boot-14-restful-api-@RestController-@RequestBody-@PathVariable](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-14-restful-api-%40RestController-%40RequestBody-%40PathVariable):  Restful API + @RestController + @PathVariable + @RequestBody
+17. [spring-boot-Response Entity](https://github.com/lean2708/Learn_Spring_Boot/tree/master/ResponseEntity): Sử dụng Spring ResponseEntity để thao tác phản hồi HTTP
+17. [spring-boot-15-@ControllerAdvice-@RestControllerAdvice-@ExceptionHandler-@ResponseStatus](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-15-%40ControllerAdvice-%40RestControllerAdvice-%40ExceptionHandler-%40ResponseStatus):  Exception Handling @ExceptionHandler + @RestControllerAdvice / @ControllerAdvice + @ResponseStatus 
+18. [spring-boot-16-@ConfigurationProperties](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-16-%40ConfigurationProperties):  Hướng dẫn sử dụng @ConfigurationProperties
+19. [spring-boot-17-spring-profiles](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-17-spring-profiles):  Chạy nhiều môi trường với Spring Profile
+20. [spring-boot-18-testing-in-spring-boot](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-18-testing-in-spring-boot):  Hướng dẫn chi tiết Test Spring Boot
+21. [spring-boot-19-testing-in-spring-boot-2](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-19-testing-in-spring-boot-2):  Hướng dẫn chi tiết Test Spring Boot (Phần 2)
 22. [spring-boot-@Conditional](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-%40Conditional): Hướng dẫn tạo Bean có điều kiện với @Conditional
 23. [spring-boot-@Conditional-2-custom-conditional](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-%40Conditional-2-custom-conditional): Hướng dẫn tự tạo custom @Conditional
 24. [spring-boot-@Lazy-Anotation](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-%40Lazy-Anotation): Annotation @Lazy trong Spring Boot
