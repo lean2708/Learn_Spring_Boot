@@ -9,9 +9,9 @@ Hiện tại xu hướng hiện nay là sẽ để các frontend framework take 
 
 ### @RestController
 
-Khác với `@Controller` là sẽ trả về một template. 
+**Khác với `@Controller` là trả về tên của view**
 
-`@RestController` trả về dữ liệu dưới dạng JSON.
+**@RestController` trả về dữ liệu trực tiếp dưới dạng JSON**
 
 ```java
 @RestController
