@@ -207,7 +207,7 @@ GET http://localhost:8080/api/v1/todo/11
 
 Ở đây, đối tượng 11 không tồn tại trong danh sách, chúng ta sẽ trả về lỗi cho phía Client.
 
-![spring-boot-rest-api](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/ex3.webp****)
+![spring-boot-rest-api](https://raw.githubusercontent.com/lean2708/Learn_Spring_Boot/master/docs/images/ex3.webp)
 
 
 ### Kết
