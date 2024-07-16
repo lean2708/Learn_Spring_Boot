@@ -4,17 +4,17 @@
 
 Khi sử dụng Spring, chúng ta thường có nhiều cách để đạt được cùng một mục tiêu, bao gồm cả việc tinh chỉnh phản hồi HTTP.
 
-Trong hướng dẫn ngắn này, chúng ta sẽ xem cách thiết lập phần nội dung, trạng thái và tiêu đề của phản hồi HTTP bằng cách sử dụng ResponseEntity .
+Trong hướng dẫn ngắn này, chúng ta sẽ xem cách thiết lập, cấu hình phần nội dung, trạng thái và tiêu đề của phản hồi HTTP bằng cách sử dụng ResponseEntity .
 
 **2. ResponseEntity**
 
 Đây là cách sử dụng repsonse tốt nhất và mình khuyến khích sử dụng
 
-ResponseEntity biểu diễn toàn bộ phản hồi HTTP: mã trạng thái, tiêu đề và nội dung . Do đó, chúng ta có thể sử dụng nó để cấu hình đầy đủ phản hồi HTTP.
+**ResponseEntity** biểu diễn toàn bộ phản hồi HTTP: mã trạng thái, tiêu đề và nội dung . Do đó, chúng ta có thể sử dụng nó để cấu hình đầy đủ phản hồi HTTP.
 
 Nếu chúng ta muốn sử dụng nó, chúng ta phải trả về nó từ điểm cuối; Spring sẽ xử lý phần còn lại.
 
-ResponseEntity là một kiểu chung. Do đó, chúng ta có thể sử dụng bất kỳ kiểu nào làm phần thân phản hồi:
+**ResponseEntity** là một kiểu chung. Do đó, chúng ta có thể sử dụng bất kỳ kiểu nào làm phần thân phản hồi:
 
 ```java
 @GetMapping("/hello")
@@ -55,9 +55,9 @@ ResponseEntity<String> customHeader() {
 }
 ```
 
-Hơn nữa, ResponseEntity cung cấp hai giao diện xây dựng lồng nhau : HeadersBuilder và giao diện con của nó, BodyBuilder . Do đó, chúng ta có thể truy cập các khả năng của chúng thông qua các phương thức tĩnh của ResponseEntity .
+Hơn nữa, **ResponseEntity** cung cấp hai giao diện xây dựng lồng nhau : HeadersBuilder và giao diện con của nó, BodyBuilder . Do đó, chúng ta có thể truy cập các khả năng của chúng thông qua các phương thức tĩnh của **ResponseEntity**
 
-Trường hợp đơn giản nhất là phản hồi có nội dung và mã phản hồi HTTP 200:
+Trường hợp đơn giản nhất là phản hồi có nội dung và mã phản hồi **HTTP 200**:
 
 ```java
 @GetMapping("/hello")
@@ -77,9 +77,9 @@ HeadersBuilder<?> notFound();
 BodyBuilder ok();
 ```
 
-Ngoài ra, chúng ta có thể sử dụng phương thức BodyBuilder status(HttpStatus status) và BodyBuilder status(int status) để thiết lập bất kỳ trạng thái HTTP nào.
+Ngoài ra, chúng ta có thể sử dụng phương thức **BodyBuilder status(HttpStatus status)** và **BodyBuilder status(int status)** để thiết lập bất kỳ trạng thái HTTP nào.
 
-Cuối cùng, với ResponseEntity<T> BodyBuilder.body(T body) chúng ta có thể thiết lập nội dung phản hồi HTTP:
+Cuối cùng, với **ResponseEntity<T> BodyBuilder.body(T body)** chúng ta có thể thiết lập nội dung phản hồi HTTP:
 
 ```java
 @GetMapping("/age")
@@ -105,15 +105,15 @@ ResponseEntity<String> customHeader() {
 }
 ```
 
-Vì BodyBuilder.body() trả về ResponseEntity thay vì BodyBuilder nên đây sẽ là lệnh gọi cuối cùng.
+Vì **BodyBuilder.body()** trả về **ResponseEntity** thay vì BodyBuilder nên đây sẽ là lệnh gọi cuối cùng.
 
-Lưu ý rằng với HeaderBuilder chúng ta không thể thiết lập bất kỳ thuộc tính nào cho phần nội dung phản hồi.
+Lưu ý rằng với **HeaderBuilder** chúng ta không thể thiết lập bất kỳ thuộc tính nào cho phần nội dung phản hồi.
 
-Khi trả về đối tượng ResponseEntity<T> từ bộ điều khiển, chúng ta có thể gặp ngoại lệ hoặc lỗi trong khi xử lý yêu cầu và muốn trả về thông tin liên quan đến lỗi cho người dùng được biểu diễn dưới dạng một kiểu khác, chẳng hạn như E.
+Khi trả về đối tượng **ResponseEntity<T>** từ bộ điều khiển, chúng ta có thể gặp ngoại lệ hoặc lỗi trong khi xử lý yêu cầu và muốn trả về thông tin liên quan đến lỗi cho người dùng được biểu diễn dưới dạng một kiểu khác, chẳng hạn như E.
 
-Spring 3.2 mang đến sự hỗ trợ cho @ExceptionHandler  toàn cục  với chú thích @ControllerAdvice  mới  , xử lý các loại tình huống này. Để biết chi tiết sâu hơn, hãy tham khảo bài viết hiện có của chúng tôi tại đây .
+Spring 3.2 mang đến sự hỗ trợ cho **@ExceptionHandler**  toàn cục  với chú thích **@RestControllerAdvice**  mới  , xử lý các loại tình huống này. Đ
 
-Mặc dù ResponseEntity rất mạnh, chúng ta không nên lạm dụng nó. Trong những trường hợp đơn giản, có những tùy chọn khác đáp ứng được nhu cầu của chúng ta và chúng tạo ra mã sạch hơn nhiều.
+Mặc dù **ResponseEntity** rất mạnh, chúng ta không nên lạm dụng nó. Trong những trường hợp đơn giản, có những tùy chọn khác đáp ứng được nhu cầu của chúng ta và chúng tạo ra mã sạch hơn nhiều.
 
 **3. Các lựa chọn thay thế:**
 
