@@ -4,7 +4,7 @@
 
 Trong bài trước chúng ta đã biết cách làm một Rest Api Server với **Spring Boot**.
 
-1. 「Spring Boot #14」 Restful API + @RestController + @PathVariable + @RequestBody
+1.  Restful API + @RestController + @PathVariable + @RequestBody
 
 Tuy nhiên có một số vấn đề mà chúng ta kiểm soát. Ví dụ như nếu người dùng request lên một `id` không hề tồn tại thì sao?
 
