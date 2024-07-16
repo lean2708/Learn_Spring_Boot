@@ -87,9 +87,10 @@ Bạn nên `fork` hoặc `star` repository này để nó lưu vào tài khoản
 16. [spring-boot-14-restful-api-@RestController-@RequestBody-@PathVariable](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-14-restful-api-%40RestController-%40RequestBody-%40PathVariable):  Restful API + @RestController + @PathVariable + @RequestBody
 17. [spring-boot-Response Entity](https://github.com/lean2708/Learn_Spring_Boot/tree/master/ResponseEntity): Sử dụng Spring ResponseEntity để thao tác phản hồi HTTP
 17. [spring-boot-15-@ControllerAdvice-@RestControllerAdvice-@ExceptionHandler-@ResponseStatus](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-15-%40ControllerAdvice-%40RestControllerAdvice-%40ExceptionHandler-%40ResponseStatus):  Exception Handling @ExceptionHandler + @RestControllerAdvice / @ControllerAdvice + @ResponseStatus 
+18. [spring-boot- Validate Input Data](https://github.com/lean2708/Learn_Spring_Boot/tree/master/Validate%20Input): Validate Input Data Trong Spring Boot (Phần 1)
 18. [spring-boot-16-@ConfigurationProperties](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-16-%40ConfigurationProperties):  Hướng dẫn sử dụng @ConfigurationProperties
 19. [spring-boot-17-spring-profiles](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-17-spring-profiles):  Chạy nhiều môi trường với Spring Profile
-20. [spring-boot-18-testing-in-spring-boot](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-18-testing-in-spring-boot):  Hướng dẫn chi tiết Test Spring Boot
+20. [spring-boot-18-testing-in-spring-boot](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-18-testing-in-spring-boot):  Hướng dẫn chi tiết Test Spring Boot (Phần 1)
 21. [spring-boot-19-testing-in-spring-boot-2](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-19-testing-in-spring-boot-2):  Hướng dẫn chi tiết Test Spring Boot (Phần 2)
 22. [spring-boot-@Conditional](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-%40Conditional): Hướng dẫn tạo Bean có điều kiện với @Conditional
 23. [spring-boot-@Conditional-2-custom-conditional](https://github.com/lean2708/Learn_Spring_Boot/tree/master/spring-boot-%40Conditional-2-custom-conditional): Hướng dẫn tự tạo custom @Conditional
