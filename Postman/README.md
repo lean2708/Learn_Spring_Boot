@@ -6,15 +6,15 @@ Postman là một nền tảng API để xây dựng và sử dụng các API. P
 
 ![po1](https://github.com/lean2708/Learn_Spring_Boot/blob/master/docs/image2/po1.png?raw=true)
 
-**Công dụng của Postman**
+# Công dụng của Postman
 
-1. Kho API: Dễ dàng lưu trữ, lập danh mục và cộng tác xung quanh tất cả các tạo phẩm API của bạn trên một nền tảng trung tâm. Postman có thể lưu trữ và quản lý thông số kỹ thuật API, tài liệu, công thức quy trình làm việc, trường hợp và kết quả thử nghiệm, chỉ số và mọi thứ khác liên quan đến API.
-2. Công cụ: Nền tảng Postman bao gồm một bộ công cụ toàn diện giúp đẩy nhanh vòng đời của API — từ thiết kế, thử nghiệm, tài liệu và mô phỏng đến chia sẻ và khả năng khám phá của các API của bạn.
-3. Quản trị: Phương pháp quản trị toàn vòng đời của Postman cho phép những người chấp nhận thay đổi các phương pháp phát triển của họ, dẫn đến các API chất lượng tốt hơn và thúc đẩy sự hợp tác giữa các nhóm nhà phát triển và nhóm thiết kế API.
-4. Không gian làm việc: Không gian làm việc của người đưa thư giúp bạn tổ chức công việc API của mình và cộng tác trong tổ chức của bạn hoặc trên toàn thế giới. Có ba loại không gian làm việc Postman khác nhau cho các nhu cầu khác nhau của bạn: không gian làm việc cá nhân, không gian làm việc nhóm và không gian làm việc công cộng.
-5. Tích hợp: Postman tích hợp với các công cụ quan trọng nhất trong quy trình phát triển phần mềm của bạn để cho phép thực hành API ưu tiên. Nền tảng Postman cũng có thể mở rộng thông qua API Postman và thông qua các công nghệ mã nguồn mở .
+1. **Kho API**: Dễ dàng lưu trữ, lập danh mục và cộng tác xung quanh tất cả các tạo phẩm API của bạn trên một nền tảng trung tâm. Postman có thể lưu trữ và quản lý thông số kỹ thuật API, tài liệu, công thức quy trình làm việc, trường hợp và kết quả thử nghiệm, chỉ số và mọi thứ khác liên quan đến API.
+2. **Công cụ**: Nền tảng Postman bao gồm một bộ công cụ toàn diện giúp đẩy nhanh vòng đời của API — từ thiết kế, thử nghiệm, tài liệu và mô phỏng đến chia sẻ và khả năng khám phá của các API của bạn.
+3. **Quản trị**: Phương pháp quản trị toàn vòng đời của Postman cho phép những người chấp nhận thay đổi các phương pháp phát triển của họ, dẫn đến các API chất lượng tốt hơn và thúc đẩy sự hợp tác giữa các nhóm nhà phát triển và nhóm thiết kế API.
+4. **Không gian làm việc**: Không gian làm việc của người đưa thư giúp bạn tổ chức công việc API của mình và cộng tác trong tổ chức của bạn hoặc trên toàn thế giới. Có ba loại không gian làm việc Postman khác nhau cho các nhu cầu khác nhau của bạn: không gian làm việc cá nhân, không gian làm việc nhóm và không gian làm việc công cộng.
+5. **Tích hợp**: Postman tích hợp với các công cụ quan trọng nhất trong quy trình phát triển phần mềm của bạn để cho phép thực hành API ưu tiên. Nền tảng Postman cũng có thể mở rộng thông qua API Postman và thông qua các công nghệ mã nguồn mở .
 
-**Cách cài đặt và sử dụng Postman**
+# Cách cài đặt và sử dụng Postman
 
 # 1.Cài đặt Postman
 Bước 1: Truy cập https://www.postman.com/downloads/ và lựa chọn phiên bản phù hợp với máy tính của mình chẳng hạn như MacOs, Windown, Linux. Click vào !
